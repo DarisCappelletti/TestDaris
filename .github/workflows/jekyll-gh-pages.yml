@@ -17,7 +17,7 @@ jobs:
         path: wiki
 
     - name: Crea la directory docs
-      run: mkdir docs
+      run: mkdir -p docs
 
     - name: Sposta i file della Wiki nella cartella docs
       run: mv wiki/* docs/
