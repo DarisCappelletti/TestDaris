@@ -1,0 +1,38 @@
+name: Wiki to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Cambia questa se stai usando un'altra branch principale
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+
+      - name: Install Jekyll and dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Build and deploy Wiki to GitHub Pages
+        run: |
+          bundle exec jekyll build -d _site/wiki
+          mkdir -p _site/wiki
+          mv _site/* $GITHUB_WORKSPACE/
+        env:
+          JEKYLL_ENV: production
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: $GITHUB_WORKSPACE
