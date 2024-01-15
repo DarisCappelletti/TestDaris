@@ -3,7 +3,7 @@ name: Pubblica Wiki su GitHub Pages
 on:
   push:
     branches:
-      - main # Puoi modificare questo in base al tuo branch principale
+      - master # Puoi modificare questo in base al tuo branch principale
 
 jobs:
   build-and-deploy:
