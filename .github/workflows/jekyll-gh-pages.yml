@@ -1,17 +1,34 @@
-name: Documentation
+name: Publish Wiki to GitHub Pages
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # Modifica il nome del branch se necessario
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      # Additional steps to generate documentation in "Documentation" directory
-      - name: Upload Documentation to Wiki
-        uses: SwiftDocOrg/github-wiki-publish-action@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # Aggiungi eventuali passaggi aggiuntivi per generare la documentazione nella cartella "Documentation"
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          path: "Documentation"
-        env:
-          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          node-version: '14'
+
+      - name: Install MkDocs
+        run: npm install -g mkdocs
+
+      - name: Build MkDocs
+        run: mkdocs build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+          publish_dir: ./site  # Assicurati che corrisponda alla cartella di output di MkDocs
+          publish_branch: gh-pages
