@@ -25,8 +25,7 @@ jobs:
 
     - name: Build and deploy to GitHub Pages
       run: |
-        bundle exec jekyll build -d ${{github.workspace}}/docs
-        mv ${{github.workspace}}/docs ${{github.workspace}}/.wiki
+        bundle exec jekyll build -d ${{github.workspace}}/.wiki
       env:
         JEKYLL_ENV: production
 
