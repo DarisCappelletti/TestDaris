@@ -16,6 +16,9 @@ jobs:
         repository: DarisCappelletti/TestDaris.wiki
         path: wiki
 
+    - name: Crea la directory docs
+      run: mkdir docs
+
     - name: Sposta i file della Wiki nella cartella docs
       run: mv wiki/* docs/
 
