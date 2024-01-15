@@ -1,27 +1,17 @@
-name: Publish Wiki to GitHub Pages
+name: Documentation
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v1
+      # Additional steps to generate documentation in "Documentation" directory
+      - name: Upload Documentation to Wiki
+        uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
-          node-version: '14'
-
-      - name: Install Dependencies
-        run: npm install -g markdown-to-gh-pages
-
-      - name: Convert and Publish Wiki
-        run: markdown-to-gh-pages --gh-repo TestDaris --gh-branch gh-pages --wiki-dir TestDaris.wiki
+          path: "Documentation"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
