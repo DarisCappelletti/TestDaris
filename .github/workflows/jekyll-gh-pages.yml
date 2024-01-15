@@ -1,34 +1,36 @@
-name: Publish Wiki to GitHub Pages
+name: Pubblica Wiki su GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Modifica il nome del branch se necessario
+      - master # Puoi modificare questo in base al tuo branch principale
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: Checkout del codice
+      uses: actions/checkout@v2
 
-      # Aggiungi eventuali passaggi aggiuntivi per generare la documentazione nella cartella "Documentation"
+    - name: Configura ambiente di Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
+    - name: Installa le dipendenze
+      run: npm install # o qualsiasi altro gestore di dipendenze che stai usando
 
-      - name: Install MkDocs
-        run: npm install -g mkdocs
+    - name: Genera la Wiki in HTML (sostituisci con il tuo comando)
+      run: npm run build-wiki # sostituisci con il comando necessario per generare la tua wiki
 
-      - name: Build MkDocs
-        run: mkdocs build
+    - name: Sposta i file nella cartella docs
+      run: |
+        mkdir -p docs
+        mv generated-wiki/* docs/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          publish_dir: ./site  # Assicurati che corrisponda alla cartella di output di MkDocs
-          publish_branch: gh-pages
+    - name: Pubblica su GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+        publish_dir: ./docs
