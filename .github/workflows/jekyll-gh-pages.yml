@@ -3,18 +3,21 @@ name: Pubblica Wiki su GitHub Pages
 on:
   push:
     branches:
-      - master # Puoi modificare questo in base al tuo branch principale
+      - master
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout del codice
+    - name: Checkout della Wiki
       uses: actions/checkout@v2
+      with:
+        repository: DarisCappelletti/TestDaris.wiki
+        path: wiki
 
     - name: Sposta i file della Wiki nella cartella docs
-      run: mv .wiki/* docs/
+      run: mv wiki/* docs/
 
     - name: Pubblica su GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
