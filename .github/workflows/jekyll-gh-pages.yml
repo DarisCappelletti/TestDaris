@@ -1,37 +1,29 @@
-# Workflow per pubblicare la Wiki su GitHub Pages
 name: Deploy Wiki to GitHub Pages
 
 on:
-  # Esegui il workflow quando ci sono push sul branch principale
   push:
     branches: ["master"]
-
-  # Consenti l'esecuzione manuale dal tab "Actions"
   workflow_dispatch:
 
-# Imposta le autorizzazioni del GITHUB_TOKEN per consentire il deploy su GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Imposta una sola distribuzione concorrente, ignorando le esecuzioni in coda tra l'esecuzione in corso e l'ultima in coda.
-# Tuttavia, NON annullare le esecuzioni in corso, poiché vogliamo consentire il completamento di queste distribuzioni di produzione.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Lavoro di deploy
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Clona la repository della Wiki
+      - name: Clone Wiki repository
         run: |
           git clone https://github.com/DarisCappelletti/TestDaris.wiki.git ${{github.workspace}}/.wiki
-      - name: Carica la Wiki su GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
