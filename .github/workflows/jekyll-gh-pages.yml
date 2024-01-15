@@ -3,7 +3,7 @@ name: Pubblica Wiki su GitHub Pages
 on:
   push:
     branches:
-      - master # Puoi modificare questo in base al tuo branch principale
+      - main # Puoi modificare questo in base al tuo branch principale
 
 jobs:
   build-and-deploy:
@@ -13,21 +13,8 @@ jobs:
     - name: Checkout del codice
       uses: actions/checkout@v2
 
-    - name: Configura ambiente di Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
-
-    - name: Installa le dipendenze
-      run: npm install # o qualsiasi altro gestore di dipendenze che stai usando
-
-    - name: Genera la Wiki in HTML (sostituisci con il tuo comando)
-      run: npm run build-wiki # sostituisci con il comando necessario per generare la tua wiki
-
-    - name: Sposta i file nella cartella docs
-      run: |
-        mkdir -p docs
-        mv generated-wiki/* docs/
+    - name: Sposta i file della Wiki nella cartella docs
+      run: mv path/to/wiki/* docs/
 
     - name: Pubblica su GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
