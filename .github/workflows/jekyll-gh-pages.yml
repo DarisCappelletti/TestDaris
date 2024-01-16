@@ -26,21 +26,3 @@ jobs:
         git add .
         git commit -m "Update wiki files"
         git push
-
-    - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Install MkDocs
-        run: npm install -g mkdocs
-
-      - name: Build MkDocs
-        run: mkdocs build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          publish_dir: .  # Assicurati che corrisponda alla cartella di output di MkDocs
-          publish_branch: master
