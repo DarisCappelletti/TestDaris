@@ -1,10 +1,9 @@
 site_name: TestDaris
 
 nav:
-  - Home: 'index.md'
-  - Sidebar: '_Sidebar.md'
-  - Footer: '_Footer.md'
-  # Altri file o collegamenti della tua Wiki
+  - Home: 'Home.md'
+  - Docs:
+    - 'docs/*'
 
 theme:
   name: material
@@ -18,11 +17,6 @@ plugins:
 markdown_extensions:
   - admonition
   - codehilite
-
-nav:
-  - Home: 'Home.md'
-  - Docs:
-    - 'docs/*'
 
 docs_dir: docs
 site_dir: site
