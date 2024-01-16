@@ -186,76 +186,22 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
         
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-            
   
   <span class="md-ellipsis">
-    docs/*
+    Home
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            docs/*
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    include
-  </span>
+      </a>
+    </li>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            include
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
+    
+      
+      
   
   
   
@@ -265,7 +211,7 @@
         
   
   <span class="md-ellipsis">
-     Sidebar
+    Sidebar
   </span>
   
 
@@ -273,10 +219,9 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
@@ -286,27 +231,11 @@
         
   
   <span class="md-ellipsis">
-     Footer
+    Footer
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -426,29 +355,29 @@
 
 <h1 id="parametri-della-richiesta-di-autenticazione">Parametri della Richiesta di Autenticazione</h1>
 <p>In questa sezione definiamo in dettaglio i parametri di autenticazione presenti nel tag <code>stilesheet</code> della Richiesta di Autenticazione effettuata da Cohesion.</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
-&lt;dsAuth xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-xmlns=&quot;http://tempuri.org/Auth.xsd&quot;
-&lt;auth&gt;
-&lt;user /&gt;
-&lt;id_sa /&gt;
-&lt;id_sito&gt;SITE_ID&lt;/id_sito&gt;
-&lt;esito_auth_sa /&gt;
-&lt;id_sessione_sa /&gt;
-&lt;id_sessione_aspnet_sa /&gt;
-&lt;url_validate&gt;
-https://cohesion2.regione.marche.it/TestCohesion/ValidateFE.aspx?ReturnUrl=%2ftestcohesion%2fprivato%2fpagina_protetta.aspx&lt;/url_validate&gt;
-&lt;url_richiesta&gt;
-https://cohesion2.regione.marche.it:443/testcohesion/privato/pagina_protetta.aspx&lt;/url_richiesta&gt;
-&lt;esito_auth_sso /&gt;
-&lt;id_sessione_sso /&gt;
-&lt;id_sessione_aspnet_sso /&gt;
-&lt;stilesheet&gt;AuthRestriction=3,2,1,0;
-https://cohesion2.regione.marche.it/testcohesion/Index.aspx;UType=d;purpose=PG|PF|LP;eidas=3;SpidMode=OIDC;CieMode=OIDC;IPA=c_000&lt;/stilesheet&gt;
-&lt;/auth&gt;
-&lt;/dsAuth&gt;
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;</span>
+<span class="nt">&lt;dsAuth</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="na">xmlns=</span><span class="s">&quot;http://tempuri.org/Auth.xsd&quot;</span>
+<span class="err">&lt;auth</span><span class="nt">&gt;</span>
+<span class="nt">&lt;user</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sa</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sito&gt;</span>SITE_ID<span class="nt">&lt;/id_sito&gt;</span>
+<span class="nt">&lt;esito_auth_sa</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sessione_sa</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sessione_aspnet_sa</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;url_validate&gt;</span>
+https://cohesion2.regione.marche.it/TestCohesion/ValidateFE.aspx?ReturnUrl=%2ftestcohesion%2fprivato%2fpagina_protetta.aspx<span class="nt">&lt;/url_validate&gt;</span>
+<span class="nt">&lt;url_richiesta&gt;</span>
+https://cohesion2.regione.marche.it:443/testcohesion/privato/pagina_protetta.aspx<span class="nt">&lt;/url_richiesta&gt;</span>
+<span class="nt">&lt;esito_auth_sso</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sessione_sso</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sessione_aspnet_sso</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;stilesheet&gt;</span>AuthRestriction=3,2,1,0;
+https://cohesion2.regione.marche.it/testcohesion/Index.aspx;UType=d;purpose=PG|PF|LP;eidas=3;SpidMode=OIDC;CieMode=OIDC;IPA=c_000<span class="nt">&lt;/stilesheet&gt;</span>
+<span class="nt">&lt;/auth&gt;</span>
+<span class="nt">&lt;/dsAuth&gt;</span>
+</code></pre></div>
 
-</code></pre>
 <h2 id="authrestriction"><code>AuthRestriction</code></h2>
 <p>Il parametro <code>AuthRestriction</code> stabilisce il livello di autenticazione minimo richiesto associandolo a un valore numerico (0,1,2,3). Nello specifico:</p>
 <p>0= Accesso solo con password - SPID Livello 1</p>
@@ -539,6 +468,8 @@ https://cohesion2.regione.marche.it/testcohesion/Index.aspx;UType=d;purpose=PG|P
     
     
       <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="../docs/_Footer.md"></script>
       
     
   </body>

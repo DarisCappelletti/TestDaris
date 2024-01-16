@@ -186,76 +186,22 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
         
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-            
   
   <span class="md-ellipsis">
-    docs/*
+    Home
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            docs/*
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    include
-  </span>
+      </a>
+    </li>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            include
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
+    
+      
+      
   
   
   
@@ -265,7 +211,7 @@
         
   
   <span class="md-ellipsis">
-     Sidebar
+    Sidebar
   </span>
   
 
@@ -273,10 +219,9 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
@@ -286,27 +231,11 @@
         
   
   <span class="md-ellipsis">
-     Footer
+    Footer
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -351,10 +280,11 @@ Questa operazione va fatta prima della scadenza del Token.</p>
 <p>Esempi:</p>
 <p><strong>1) Integrazione C#:</strong></p>
 <p>Per rinnovare il token è sufficiente reindirizzare l'utente alla propria pagina di login, in modo da eseguire nuovamente il codice</p>
-<pre><code class="language-c#">CohesionSSO cohesionSSO = new CohesionSSO(Request, Response, Session);
+<div class="codehilite"><pre><span></span><code><span class="n">CohesionSSO</span><span class="w"> </span><span class="n">cohesionSSO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CohesionSSO</span><span class="p">(</span><span class="n">Request</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="p">,</span><span class="w"> </span><span class="n">Session</span><span class="p">);</span>
 
-cohesionSSO.ValidateFE();
-</code></pre>
+<span class="n">cohesionSSO</span><span class="p">.</span><span class="n">ValidateFE</span><span class="p">();</span>
+</code></pre></div>
+
 <p><strong>2) Integrazione Servlet Java:</strong></p>
 <p>Per rinnovare il token è sufficiente reindirizzare l'utente alla Servlet Java, di norma richiamata dalla pagina di login della applicazione.</p>
 <p>In entrambi i casi l'utente viene reindirizzato a Cohesion, il sistema verifica che ha già una sessione valida, genera un nuovo Token valido 60 minuti e reindirizza l'utente all'applicazione.</p>
@@ -363,13 +293,15 @@ cohesionSSO.ValidateFE();
 <ul>
 <li><strong>Cohesion Sviluppo</strong></li>
 </ul>
-<pre><code class="language-xml">https://cohesion2sviluppo.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion.regione.marche.it:idp
-</code></pre>
+<div class="codehilite"><pre><span></span><code>https://cohesion2sviluppo.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion.regione.marche.it:idp
+</code></pre></div>
+
 <ul>
 <li><strong>Cohesion Produzione</strong></li>
 </ul>
-<pre><code class="language-xml">https://cohesion2.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion2.regione.marche.it:idp
-</code></pre>
+<div class="codehilite"><pre><span></span><code>https://cohesion2.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion2.regione.marche.it:idp
+</code></pre></div>
+
 <p>ovvero passando il parametro entityID valorizzato con l'id dell'entità SAML a cui si vuole redirigere automaticamente (che nel caso di cohesion è cohesion.regione.marche.it:idp).</p>
 <p>{% include "_Sidebar.md" %}</p>
 <p>{% include "_Footer.md" %}</p>
@@ -423,6 +355,8 @@ cohesionSSO.ValidateFE();
     
     
       <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="../docs/_Footer.md"></script>
       
     
   </body>

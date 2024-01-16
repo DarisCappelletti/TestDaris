@@ -186,76 +186,22 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
         
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-            
   
   <span class="md-ellipsis">
-    docs/*
+    Home
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            docs/*
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    include
-  </span>
+      </a>
+    </li>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            include
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
+    
+      
+      
   
   
   
@@ -265,7 +211,7 @@
         
   
   <span class="md-ellipsis">
-     Sidebar
+    Sidebar
   </span>
   
 
@@ -273,10 +219,9 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
@@ -286,27 +231,11 @@
         
   
   <span class="md-ellipsis">
-     Footer
+    Footer
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -390,14 +319,16 @@ Verrà in dettaglio descritta la procedura di installazione in ambiente Java Ser
 <p><em>Di seguito verranno elencate le operazioni di configurazione da effettuare</em>:
 1. Effettuare il deploy del WAR: Nel caso di Apache Tomcat come servlet container, copiare il file CohesionServlet.war dentro la cartella webapp e lanciare Tomcat in modo da effettuare automaticamente il deploy della servlet. Nel caso Tomcat sia configurato per non effettuare il deploy automatico è sufficiente scompattare il file .war (è un archivio zip) nella cartella webapp/CohesionServlet.
 2. Importare i certificati CA della Regione Marche presenti nel keystore RegioneMarcheCA.keystore, nel keystore interno di java mediante il comando:</p>
-<pre><code class="language-java">keytool -importkeystore -srckeystore RegioneMarcheCA.keystore
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">keytool</span><span class="w"> </span><span class="o">-</span><span class="n">importkeystore</span><span class="w"> </span><span class="o">-</span><span class="n">srckeystore</span><span class="w"> </span><span class="n">RegioneMarcheCA</span><span class="p">.</span><span class="na">keystore</span>
+</code></pre></div>
+
 <p>La password del keystore RegioneMarcheCA.keystore è “password” mentre la password dell’ keystore java di default dovrebbe essere “changeit”.</p>
 <p>Alternativamente a questa procedura è possibile lanciare Tomcat o JBoss specificando il keystore da utilizzare per i certificati CA; 
 I parametri da aggiungere alla variabile di sistema JAVA_OPTS comunemente usata in Tomcat e JBoss sono:</p>
-<pre><code class="language-java">-Djavax.net.ssl.trustStore=/path/RegioneMarcheCA.keystore
--Djavax.net.ssl.trustStorePassword=password
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">-</span><span class="n">Djavax</span><span class="p">.</span><span class="na">net</span><span class="p">.</span><span class="na">ssl</span><span class="p">.</span><span class="na">trustStore</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">RegioneMarcheCA</span><span class="p">.</span><span class="na">keystore</span>
+<span class="o">-</span><span class="n">Djavax</span><span class="p">.</span><span class="na">net</span><span class="p">.</span><span class="na">ssl</span><span class="p">.</span><span class="na">trustStorePassword</span><span class="o">=</span><span class="n">password</span>
+</code></pre></div>
+
 <ol>
 <li>
 <p>Copiare il certificato personale presente nel pacchetto in una cartella sicura (non accessibile via web). Nel caso il certificato abbia estensione .pfx, è fondamentale rinominarlo in .p12. Qualora non sia stato fornito un certificato personale insieme alla servlet è possibile utilizzare la modalità di recupero sicuro del token di autenticazione specificando il parametro <strong>“webSso”</strong> descritto nel punto 4c. In tal caso il parametro <strong>“wsSso”</strong> presente nel punto 4c e tutti i parametri del punto 4a potranno essere ignorati. Questa è la modalità di default con cui viene fornita la servlet.</p>
@@ -413,8 +344,9 @@ Qualora fosse stato rilasciato un certificato personale insieme alla servlet, qu
 * <strong>pwdKeystore</strong>: La password che protegge il certificato
 * <strong>pwdCertificate</strong>: La password che protegge la chiave privata. Solitamente è uguale a pwdKeystore
 * <strong>aliasCertificate</strong>: L'alias del certificato. Per visualizzarlo utilizzare il comando:</p>
-<pre><code class="language-java">keytool -list -keystore &lt;certificato&gt;.p12 -storetype pkcs12
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">keytool</span><span class="w"> </span><span class="o">-</span><span class="n">list</span><span class="w"> </span><span class="o">-</span><span class="n">keystore</span><span class="w"> </span><span class="o">&lt;</span><span class="n">certificato</span><span class="o">&gt;</span><span class="p">.</span><span class="na">p12</span><span class="w"> </span><span class="o">-</span><span class="n">storetype</span><span class="w"> </span><span class="n">pkcs12</span>
+</code></pre></div>
+
 <p>Il comando è presente nella cartella bin di Java e restituirà un output simile al seguente:</p>
 <p><code>be7446f14507a331c1b5b8ff70a66520_d0e8d7b1-bcb5-4128-9d8e-2fc4dc332132</code>, 30-ott-2012, PrivateKeyEntry, Impronta digitale certificato (SHA1): DC:DD:60:1C:9D:43:AF:9B:F7:6E:AE:6B:5A:D5:F7:14:33:D0:0C:5C</p>
 <p>Il primo valore terminato dalla virgola è l'alias da inserire.</p>
@@ -441,19 +373,23 @@ Per abilitare il funzionamento in modalità SAML2.0 è sufficiente cambiare i va
 ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx</code></p>
 <p>E' possibile forzare l'entityID utilizzato dall'utente, impostando il seguente parametro nel query string    <strong>entityID=<nome idp>:idp</strong></p>
 <p>Esempio (Sviluppo):</p>
-<pre><code>https://cohesion2sviluppo.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion.regione.marche.it:idp
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nl">https:</span><span class="c1">//cohesion2sviluppo.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion.regione.marche.it:idp</span>
+</code></pre></div>
+
 <p>Esempio (Produzione):</p>
-<pre><code>https://cohesion2.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion2.regione.marche.it:idp
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nl">https:</span><span class="c1">//cohesion2.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion2.regione.marche.it:idp</span>
+</code></pre></div>
+
 <h3 id="parametro-id_sito">Parametro id_sito</h3>
 <p>In caso per l'integrazione sia necessario impostare un IDSito col valore fornito da Regione Marche in fase di abilitazione all'uso di cohesion, il valore va sostituito nella classe contenuta nel WAR Java</p>
-<pre><code class="language-java">WEB-INF\classes\it\unicam\cs\cohesion\servlet\AuthServlet.java
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">WEB</span><span class="o">-</span><span class="n">INF</span><span class="err">\</span><span class="n">classes</span><span class="err">\</span><span class="n">it</span><span class="err">\</span><span class="n">unicam</span><span class="err">\</span><span class="n">cs</span><span class="err">\</span><span class="n">cohesion</span><span class="err">\</span><span class="n">servlet</span><span class="err">\</span><span class="n">AuthServlet</span><span class="p">.</span><span class="na">java</span>
+</code></pre></div>
+
 <p>riga 34 [private String idsito = "TEST";]</p>
 <p>e nella classe</p>
-<pre><code class="language-java">WEB-INF\classes\it\unicam\cs\cohesion\servlet\LogoutServlet.java
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">WEB</span><span class="o">-</span><span class="n">INF</span><span class="err">\</span><span class="n">classes</span><span class="err">\</span><span class="n">it</span><span class="err">\</span><span class="n">unicam</span><span class="err">\</span><span class="n">cs</span><span class="err">\</span><span class="n">cohesion</span><span class="err">\</span><span class="n">servlet</span><span class="err">\</span><span class="n">LogoutServlet</span><span class="p">.</span><span class="na">java</span>
+</code></pre></div>
+
 <p>riga 22 [private String idsito = "TEST";]</p>
 <h3 id="rinnovo-asserzione-saml">Rinnovo asserzione SAML</h3>
 <p>Una volta autenticati, la sessione per il Single Sign On sarà valida per 60 minuti. Nella modalità SAML questo tempo sarà anche specificato nella risposta SAML ritornata dall’IdP. Entro tale tempo sarà possibile accedere a qualunque sito protetto da Cohesion senza che appaia la maschera di autenticazione. Il Service Provider in tal caso otterrà un nuovo token (contenente anche una nuova asserzione SAML in caso di modalità SAML) ed un rinnovamento del cookie di sessione per altri 60 minuti.</p>
@@ -510,6 +446,8 @@ ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx</c
     
     
       <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="../docs/_Footer.md"></script>
       
     
   </body>

@@ -186,76 +186,22 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
         
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-            
   
   <span class="md-ellipsis">
-    docs/*
+    Home
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            docs/*
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    include
-  </span>
+      </a>
+    </li>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            include
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
+    
+      
+      
   
   
   
@@ -265,7 +211,7 @@
         
   
   <span class="md-ellipsis">
-     Sidebar
+    Sidebar
   </span>
   
 
@@ -273,10 +219,9 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
@@ -286,27 +231,11 @@
         
   
   <span class="md-ellipsis">
-     Footer
+    Footer
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -454,15 +383,16 @@ Nella repo della demo sono indicati i requisiti ed i passaggi da eseguire per in
 *  <strong>site.IndexURL</strong>: url della propria pagina a cui ritornare in caso di errore di autenticazione.</p>
 </blockquote>
 <p>Esempio di codice di configurazione in <strong>appsettings.json</strong>:</p>
-<pre><code class="language-c#">&quot;AppSettings&quot;: {
-    &quot;SSOcheckUrl&quot;: &quot;https://cohesion2.regione.marche.it/SPManager/WAYF.aspx&quot;,
-    &quot;SSOwebCheckSession&quot;: &quot;https://cohesion2.regione.marche.it/SPManager/webCheckSessionSSO.aspx&quot;,
-    &quot;SSOadditionalData&quot;: &quot;AuthRestriction=0,1,2,3;https://MYSITE/Account/LogOff&quot;,
-    &quot;SiteIndexUrl&quot;: &quot;https://MYSITE/Account/Login&quot;,
-    &quot;SiteUrlLogout&quot;: &quot;../Logout.aspx?ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx&quot;,
-    &quot;SiteIdSito&quot;: &quot;MYSITE&quot;
-  }
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="s">&quot;AppSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;SSOcheckUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://cohesion2.regione.marche.it/SPManager/WAYF.aspx&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;SSOwebCheckSession&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://cohesion2.regione.marche.it/SPManager/webCheckSessionSSO.aspx&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;SSOadditionalData&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AuthRestriction=0,1,2,3;https://MYSITE/Account/LogOff&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;SiteIndexUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://MYSITE/Account/Login&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;SiteUrlLogout&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../Logout.aspx?ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;SiteIdSito&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;MYSITE&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+
 <p>Di seguito verranno descritti i campi che è possibile cambiare:
 * <strong>site.URLLogout</strong>: Contiene l’url della pagina di Logout dalla posizione della pagina autenticata. A differenza della modalità classica non è però possibile cambiare il parametro ReturnUrl in quanto strettamente dipendente alle funzionalità di logout di SAML.
 * <strong>site.IndexURL</strong>: se presente deve contenere l’url della propria pagina a cui ritornare in caso di errore di autenticazione.
@@ -534,6 +464,8 @@ Es. AuthRestriction=2,1;http://host/YOURSITE/Logout.aspx;UType=c;eidas=1</p>
     
     
       <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="../docs/_Footer.md"></script>
       
     
   </body>

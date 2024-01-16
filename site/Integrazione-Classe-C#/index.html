@@ -186,76 +186,22 @@
   
   
   
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
         
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
-            
   
   <span class="md-ellipsis">
-    docs/*
+    Home
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            docs/*
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    include
-  </span>
+      </a>
+    </li>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            include
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
+    
+      
+      
   
   
   
@@ -265,7 +211,7 @@
         
   
   <span class="md-ellipsis">
-     Sidebar
+    Sidebar
   </span>
   
 
@@ -273,10 +219,9 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
@@ -286,27 +231,11 @@
         
   
   <span class="md-ellipsis">
-     Footer
+    Footer
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -370,15 +299,16 @@ In questo modo tutti i parametri richiesti dovranno essere specificati nel web.c
 *  <strong>site.IndexURL</strong>: url della propria pagina a cui ritornare in caso di errore di autenticazione.</p>
 </blockquote>
 <p>Esempio di codice di configurazione in <strong>web.config</strong>:</p>
-<pre><code class="language-c#">&lt;appSettings&gt;
- &lt;add key=&quot;sso.check.url&quot; value=&quot;http://cohesion2.regione.marche.it/SSO/Check.aspx&quot;/&gt;
- &lt;add key=&quot;sso.webCheckSessionSSO&quot; value=&quot;https://cohesion2.regione.marche.it/SSO/webCheckSessionSSO.aspx&quot;/&gt;
- &lt;add key=&quot;sso.additionalData&quot; value=&quot;&quot;/&gt;
- &lt;add key=&quot;site.URLLogout&quot; value=&quot;../Logout.aspx?ReturnUrl=index.aspx&quot;/&gt;
- &lt;add key=&quot;site.id_sito&quot; value=&quot;MYSITE&quot;/&gt;
- &lt;add key=&quot;site.IndexURL&quot; value=&quot;index.aspx&quot;/&gt;
-&lt;/appSettings&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">appSettings</span><span class="o">&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.check.url&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;http://cohesion2.regione.marche.it/SSO/Check.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.webCheckSessionSSO&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;https://cohesion2.regione.marche.it/SSO/webCheckSessionSSO.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.additionalData&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.URLLogout&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;../Logout.aspx?ReturnUrl=index.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.id_sito&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;MYSITE&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.IndexURL&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;index.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">appSettings</span><span class="o">&gt;</span>
+</code></pre></div>
+
 <ol>
 <li>Un costruttore completo con tutti i parametri richiesti:
 In questo modo non si avrà bisogno di specificare i parametri nel web.config ma si passeranno direttamente al costruttore:</li>
@@ -388,16 +318,17 @@ SSOCheckUrl, webCheckSessionSSOUrl, additionalData, indexUrl);</code></p>
 <hr />
 <p>Di seguito viene descritto un esempio di configurazione di questi parametri per utilizzare rispettivamente la modalità di funzionamento classica di Cohesion e la modalità di funzionamento federato mediante standard SAML2.0</p>
 <p><strong>Modalità di funzionamento SAML2.0</strong></p>
-<pre><code class="language-c#">&lt;appSettings&gt;
- &lt;add key=&quot;sso.check.url&quot; value=&quot;http://cohesion2.regione.marche.it/SPManager/WAYF.aspx&quot;/&gt;
- &lt;add key=&quot;sso.webCheckSessionSSO&quot; value=&quot;https://cohesion2.regione.marche.it/SPManager/webCheckSessionSSO.aspx&quot;/&gt;
- &lt;add key=&quot;site.URLLogout&quot; 
- value= &quot;../Logout.aspx?ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx&quot;/&gt;
- &lt;add key=&quot;site.IndexURL&quot; value=&quot;index.aspx&quot;/&gt;
- &lt;add key=&quot;site.id_sito&quot; value=&quot;MYSITE&quot;/&gt;
- &lt;add key=&quot;sso.additionalData&quot; value=&quot;http://YOURHOST/YOURSITE/Logout.aspx&quot;/&gt;
-&lt;/appSettings&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">appSettings</span><span class="o">&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.check.url&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;http://cohesion2.regione.marche.it/SPManager/WAYF.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.webCheckSessionSSO&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;https://cohesion2.regione.marche.it/SPManager/webCheckSessionSSO.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.URLLogout&quot;</span><span class="w"> </span>
+<span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;../Logout.aspx?ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.IndexURL&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;index.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.id_sito&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;MYSITE&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.additionalData&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;http://YOURHOST/YOURSITE/Logout.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">appSettings</span><span class="o">&gt;</span>
+</code></pre></div>
+
 <p>Di seguito verranno descritti i campi che è possibile cambiare:
 * <strong>site.URLLogout</strong>: Contiene l’url della pagina di Logout dalla posizione della pagina autenticata. A differenza della modalità classica non è però possibile cambiare il parametro ReturnUrl in quanto strettamente dipendente alle funzionalità di logout di SAML.
 * <strong>site.IndexURL</strong>: se presente deve contenere l’url della propria pagina a cui ritornare in caso di errore di autenticazione.
@@ -469,6 +400,8 @@ Es. AuthRestriction=2,1;http://host/YOURSITE/Logout.aspx;UType=c;eidas=1</p>
     
     
       <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="../docs/_Footer.md"></script>
       
     
   </body>
