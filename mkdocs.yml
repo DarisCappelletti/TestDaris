@@ -6,7 +6,8 @@ theme:
 
 nav:
   - Home: 'Home'
-  - Documentation: '*.md'
+  - Folder Contents:
+    - docs/*.md
 
 extra_javascript:
   - 'docs/_Footer.md'
