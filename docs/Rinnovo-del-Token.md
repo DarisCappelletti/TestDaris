@@ -36,8 +36,3 @@ ovvero passando il parametro entityID valorizzato con l'id dell'entità SAML a c
 
 
 
-{% include "_Sidebar.md" %}
-
-
-{% include "_Footer.md" %}
-

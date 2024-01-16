@@ -90,8 +90,3 @@ Se non specificato, verrà utilizzato il protocollo di default SAML mentre, impo
 L'IPA è l'Indice delle Pubbliche Amministrazioni, univoco ad ogni ente della Pubblica Amministrazione. 
 
 Specificando questo parametro, CohesionID effettuerà la richiesta di autenticazione verso le piattaforme nazionali ed europee per conto dell'ente aggregato specificato.
-{% include "_Sidebar.md" %}
-
-
-{% include "_Footer.md" %}
-

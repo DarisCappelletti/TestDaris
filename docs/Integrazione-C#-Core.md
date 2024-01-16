@@ -86,8 +86,3 @@ Dopo l'URL di logout è possibile inserire la stringa eidas=1. L'inserimento di 
 Es. AuthRestriction=2,1;http://host/YOURSITE/Logout.aspx;UType=c;eidas=1
 
 
-{% include "_Sidebar.md" %}
-
-
-{% include "_Footer.md" %}
-
