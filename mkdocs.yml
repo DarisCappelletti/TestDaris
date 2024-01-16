@@ -1,7 +1,8 @@
 site_name: TestDaris
 
 nav:
-  - Home: 'Home.md'
+  - Home: 'docs/Home.md'
+  - Faq: 'docs/FAQ.md'
   - Docs:
     - 'docs/*'
 
@@ -18,7 +19,6 @@ plugins:
 markdown_extensions:
   - admonition
   - codehilite
-
 
 docs_dir: docs
 site_dir: site
