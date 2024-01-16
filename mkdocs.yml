@@ -9,9 +9,15 @@ nav:
 theme:
   name: material
 
-nav:
-  - 'docs/*':  # Tutti i file nella cartella "docs"
-      include: ['_Sidebar.md', '_Footer.md']
+extra_javascript:
+  - 'docs/_Footer.md'
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - codehilite
 
 docs_dir: docs
 site_dir: site
