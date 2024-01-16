@@ -33,15 +33,6 @@ jobs:
 
         echo "$CUSTOM_NAV" > custom_nav.yml
 
-    - name: Install MkDocs
-      run: npm install -g mkdocs
-
-    - name: Install MkDocs Material theme
-      run: pip install mkdocs-material
-
-    - name: Build MkDocs
-      run: mkdocs build --config-file mkdocs.yml
-
     - name: Commit and push changes
       run: |
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -50,6 +41,15 @@ jobs:
         git commit -m "Update wiki files"
         git push
     
+    - name: Install MkDocs
+      run: npm install -g mkdocs
+
+    - name: Install MkDocs Material theme
+      run: pip install mkdocs-material
+
+    - name: Build MkDocs
+      run: mkdocs build --config-file mkdocs.yml
+      
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
