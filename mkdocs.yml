@@ -12,9 +12,6 @@ extra_javascript:
   - 'docs/_Footer.md'
   - 'docs/_Sidebar.md'
 
-plugins:
-  - search
-
 markdown_extensions:
   - admonition
   - codehilite
