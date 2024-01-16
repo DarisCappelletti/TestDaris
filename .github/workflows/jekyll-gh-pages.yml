@@ -1,4 +1,4 @@
-name: Pubblica Wiki su GitHub Pages
+name: Publish Wiki
 
 on:
   push:
@@ -6,24 +6,20 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout della Wiki
+    - name: Checkout repository
       uses: actions/checkout@v2
-      with:
-        repository: DarisCappelletti/TestDaris.wiki
-        path: wiki
 
-    - name: Crea la directory docs
-      run: mkdir -p docs
+    - name: Copy wiki files to root
+      run: cp -R ./docs/* .
 
-    - name: Sposta i file della Wiki nella cartella docs
-      run: mv wiki/* docs/
-
-    - name: Pubblica su GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-        publish_dir: ./docs
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "GitHub Actions"
+        git add .
+        git commit -m "Update wiki files"
+        git push
