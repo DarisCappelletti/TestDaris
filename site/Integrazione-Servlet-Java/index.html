@@ -1,0 +1,443 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>Integrazione mediante servlet Java - TestDaris Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#integrazione-mediante-servlet-java" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="TestDaris Wiki" class="md-header__button md-logo" aria-label="TestDaris Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TestDaris Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Integrazione mediante servlet Java
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TestDaris Wiki" class="md-nav__button md-logo" aria-label="TestDaris Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    TestDaris Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_Sidebar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sidebar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_Footer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Footer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parametro-id_sito" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parametro id_sito
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rinnovo-asserzione-saml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rinnovo asserzione SAML
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="integrazione-mediante-servlet-java">Integrazione mediante servlet Java</h1>
+<p>Con il presente si vuole fornire una panoramica completa delle modalità di integrazione e delle configurazioni di utilizzo del Service Provider fornito con Cohesion in applicativi web che richiedono autenticazione e profilazione utente.
+Verrà in dettaglio descritta la procedura di installazione in ambiente Java Servlet e la configurazione per l’utilizzo classico ed il funzionamento in modalità federata SAML2.0.</p>
+<blockquote>
+<p><strong><a href="https://cohesion.regione.marche.it/cohesioninformativo/materiale/integrazione%20mediante%20Servlet.zip">Scarica la Servlet Java ed il manuale</a></strong></p>
+<p><strong><a href="https://cohesion.regione.marche.it/cohesioninformativo/Portals/0/Download/CohesionServlet-3.0.zip">Scarica la versione per java8 e successive</a></strong></p>
+<p><strong><a href="https://cohesion.regione.marche.it/cohesioninformativo/Portals/0/Keystore_java.zip">Scarica il keystore valido a partire dal 16/02/2022</a></strong></p>
+</blockquote>
+<hr />
+<p><strong>Prerequisiti</strong>:
+* Apache Tomcat v6+, JBoss, Glassfish
+* Java v 1.6+</p>
+<p>La servlet per l’integrazione di Cohesion è stata riscritta in modo da essere compatibile anche con qualunque servlet container e non utilizzare librerie esterne e componenti aggiuntivi che ne potrebbero limitare la compatibilità.</p>
+<p>Inoltre è stato aggiunto il supporto alla funzionalità di logout, prima assente. Abbiamo quindi la servlet “Authentication” che fornisce Single Sign On e la servlet “Logout” che effettua il logout da Cohesion. Usando questo pacchetto, Cohesion potrà essere integrato in ogni tipologia di sito a prescindere dal linguaggio di progettazione (volendo anche in un sito .NET su IIS).</p>
+<p>Una volta configurata la servlet e lanciato l’ambiente Tomcat infatti, sarà sufficiente creare nel proprio sito una pagina di login che rediriga alla pagina servlet “Authentication” specificando il parametro ReturnUrl, che dovrà contenere l’url della pagina a cui la servlet ritornerà il token utente. Tale pagina può essere la stessa pagina di login, l’importante è che sia in grado di processare il token utente ricevuto via POST. Il token è firmato, eventualmente crittografato, e codificato in base64, perciò la pagina di login dovrà riuscire a decodificare la stringa base64, eventualmente decriptare il token mediante la chiave impostata nella servlet (l’algoritmo utilizzato è il 3-DES/ECB/NoPadding), ed infine volendo, verificare la firma del token Quest’ultimo passaggio in realtà non è strettamente necessario ai fini della sicurezza qualora la connessione ai server Cohesion sia fatta in HTTPS. Questo perché la servlet controlla automaticamente che il certificato SSL della pagina corrisponda effettivamente al nome DNS usato, e in caso negativo ritorna una notifica. Solo dopo questi passaggi si potrà autenticare l’utente ed aggiungere il token nella propria sessione.</p>
+<p>Nel pacchetto vengono fornite due pagine login di esempio; una sviluppata in JSP ed un'altra in PHP, insieme al certificato Cohesion necessario a verificare la firma digitale del token.</p>
+<p>Per effettuare il logout è invece sufficiente creare una pagina di logout che rediriga alla servlet “Logout”. È possibile anche in questo caso specificare il parametro ReturnUrl che sarà l’indirizzo a cui la servlet ridirigerà l’utente una volta effettuata la disconnessione da Cohesion. Nel pacchetto vengono fornite oltre alle pagine di login anche due semplici pagine di logout, una in JSP ed una in PHP.</p>
+<p><em>Di seguito verranno elencate le operazioni di configurazione da effettuare</em>:
+1. Effettuare il deploy del WAR: Nel caso di Apache Tomcat come servlet container, copiare il file CohesionServlet.war dentro la cartella webapp e lanciare Tomcat in modo da effettuare automaticamente il deploy della servlet. Nel caso Tomcat sia configurato per non effettuare il deploy automatico è sufficiente scompattare il file .war (è un archivio zip) nella cartella webapp/CohesionServlet.
+2. Importare i certificati CA della Regione Marche presenti nel keystore RegioneMarcheCA.keystore, nel keystore interno di java mediante il comando:</p>
+<pre><code class="language-java">keytool -importkeystore -srckeystore RegioneMarcheCA.keystore
+</code></pre>
+<p>La password del keystore RegioneMarcheCA.keystore è “password” mentre la password dell’ keystore java di default dovrebbe essere “changeit”.</p>
+<p>Alternativamente a questa procedura è possibile lanciare Tomcat o JBoss specificando il keystore da utilizzare per i certificati CA; 
+I parametri da aggiungere alla variabile di sistema JAVA_OPTS comunemente usata in Tomcat e JBoss sono:</p>
+<pre><code class="language-java">-Djavax.net.ssl.trustStore=/path/RegioneMarcheCA.keystore
+-Djavax.net.ssl.trustStorePassword=password
+</code></pre>
+<ol>
+<li>
+<p>Copiare il certificato personale presente nel pacchetto in una cartella sicura (non accessibile via web). Nel caso il certificato abbia estensione .pfx, è fondamentale rinominarlo in .p12. Qualora non sia stato fornito un certificato personale insieme alla servlet è possibile utilizzare la modalità di recupero sicuro del token di autenticazione specificando il parametro <strong>“webSso”</strong> descritto nel punto 4c. In tal caso il parametro <strong>“wsSso”</strong> presente nel punto 4c e tutti i parametri del punto 4a potranno essere ignorati. Questa è la modalità di default con cui viene fornita la servlet.</p>
+</li>
+<li>
+<p>Modificare il file di configurazione nella cartella webapp/CohesionServlet/WEB-INF/web.xml nel caso di Tomcat, impostando i seguenti parametri:</p>
+</li>
+</ol>
+<p><strong>a) Parametri relativi al certificato</strong>
+Qualora fosse stato rilasciato un certificato personale insieme alla servlet, questi parametri andranno obbligatoriamente cambiati in quanto sono specifici per il singolo certificato utente e sono presenti sia per la servlet di autenticazione che per quella di logout:
+* <strong>keystorePath</strong>: Inserire il percorso del certificato personale del punto 3).
+* <strong>keystoreType</strong>: Se il file è un .p12 o un .pfx rinominato in .p12 lasciare il valore PKCS12.
+* <strong>pwdKeystore</strong>: La password che protegge il certificato
+* <strong>pwdCertificate</strong>: La password che protegge la chiave privata. Solitamente è uguale a pwdKeystore
+* <strong>aliasCertificate</strong>: L'alias del certificato. Per visualizzarlo utilizzare il comando:</p>
+<pre><code class="language-java">keytool -list -keystore &lt;certificato&gt;.p12 -storetype pkcs12
+</code></pre>
+<p>Il comando è presente nella cartella bin di Java e restituirà un output simile al seguente:</p>
+<p><code>be7446f14507a331c1b5b8ff70a66520_d0e8d7b1-bcb5-4128-9d8e-2fc4dc332132</code>, 30-ott-2012, PrivateKeyEntry, Impronta digitale certificato (SHA1): DC:DD:60:1C:9D:43:AF:9B:F7:6E:AE:6B:5A:D5:F7:14:33:D0:0C:5C</p>
+<p>Il primo valore terminato dalla virgola è l'alias da inserire.</p>
+<p><strong>b) Parametri relativi al token utente restituito</strong>
+Questi parametri sono opzionali e relativi solo all'invio del token tra la servlet e la pagina di login:
+* <strong>encryptionKey</strong>:Questo parametro è opzionale. Se impostato deve avere una lunghezza fissa di 24 caratteri e permetterà di restituire alla pagina di login il token utente crittografato usando l’algoritmo 3-DES/ECB/NoPadding. Il token sarà perciò prima firmato, poi crittografato ed infine convertito in base64 e inviato in POST alla pagina di login. L’utilizzo della cifratura del token è necessario qualora si utilizzi una pagina di login non protetta da connessione sicura https. Qualora la connessione sia in https è sufficiente la firma del token per garantire un livello sicurezza elevato.
+* <strong>urlRichiesta</strong>: Questo valore va impostato solo nel caso si scelga di non inviare il parametro ReturnUrl durante la chiamata alla servlet di autenticazione per mezzo della pagina di login. In tal caso la servlet restituirà il token utente in <strong>POST</strong> alla pagina specificata in <strong>urlRichiesta</strong>, altrimenti sarà restituito alla pagina specificata in <strong>ReturnUrl</strong>.
+* <strong>urlIndex</strong>: pagina iniziale a cui reindirizzare in caso di errore. Se non viene specificata viene mostrato l'errore nella pagina in cui si presenta.</p>
+<p><strong>c) Parametri relativi all'IdP Cohesion</strong>
+Per abilitare il funzionamento in modalità SAML2.0 è sufficiente cambiare i valori di <strong>urlCheck</strong>, <strong>wsSso</strong> e <strong>additionalData</strong> nel seguente modo:
+* <strong>urlCheck</strong>: https://cohesion2.regione.marche.it/SPManager/WAYF.aspx
+* <strong>wsSso</strong>: https://cohesion2.regione.marche.it/SPManager/wsCheckSessionSPM.asmx
+* <strong>additionalData</strong>: http://yourhost/YOURSITE/Logout.aspx</p>
+<p>Deve contenere obbligatoriamente il percorso completo della propria pagina di logout affinché il logout SAML funzioni correttamente. Può contenere altri due parametri opzionali: i livelli di autenticazione da mostrare (parametro AuthRestriction) e un flag per mostrare solo i meccanismi di accesso federato SPID, CIEID, CNS e l'accesso tramite dominio. I vari parametri vanno separati da punto e virgola ";".</p>
+<p>Per approfondimenti in merito alla configurazione dei parametri addizionali, è possibile far riferimento alla pagina <a href="https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Parametri-della-Richiesta-di-Autenticazione">Parametri della Richiesta di Autenticazione</a></p>
+<blockquote>
+<p>Opzionale</p>
+</blockquote>
+<p>Dopo l'URL di logout è possibile inserire la stringa eidas=1. L'inserimento di questa stringa abilita la login eIDAS nel sistema di autenticazione SAML 2.0 di Cohesion. Questa opzione è compatibile con tutte le altre fin qui indicate. </p>
+<p>Es.
+<code>AuthRestriction=2,1;http://host/YOURSITE/Logout.aspx;UType=c;eidas=1</code></p>
+<p>Affinchè in modalità SAML2.0 funzioni il single logout è poi necessario che la propria pagina di logout richiami la servlet di logout passando il parametro ReturnUrl valorizzato come segue:</p>
+<p><code>…./Logout?
+ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx</code></p>
+<p>E' possibile forzare l'entityID utilizzato dall'utente, impostando il seguente parametro nel query string    <strong>entityID=<nome idp>:idp</strong></p>
+<p>Esempio (Sviluppo):</p>
+<pre><code>https://cohesion2sviluppo.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion.regione.marche.it:idp
+</code></pre>
+<p>Esempio (Produzione):</p>
+<pre><code>https://cohesion2.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion2.regione.marche.it:idp
+</code></pre>
+<h3 id="parametro-id_sito">Parametro id_sito</h3>
+<p>In caso per l'integrazione sia necessario impostare un IDSito col valore fornito da Regione Marche in fase di abilitazione all'uso di cohesion, il valore va sostituito nella classe contenuta nel WAR Java</p>
+<pre><code class="language-java">WEB-INF\classes\it\unicam\cs\cohesion\servlet\AuthServlet.java
+</code></pre>
+<p>riga 34 [private String idsito = "TEST";]</p>
+<p>e nella classe</p>
+<pre><code class="language-java">WEB-INF\classes\it\unicam\cs\cohesion\servlet\LogoutServlet.java
+</code></pre>
+<p>riga 22 [private String idsito = "TEST";]</p>
+<h3 id="rinnovo-asserzione-saml">Rinnovo asserzione SAML</h3>
+<p>Una volta autenticati, la sessione per il Single Sign On sarà valida per 60 minuti. Nella modalità SAML questo tempo sarà anche specificato nella risposta SAML ritornata dall’IdP. Entro tale tempo sarà possibile accedere a qualunque sito protetto da Cohesion senza che appaia la maschera di autenticazione. Il Service Provider in tal caso otterrà un nuovo token (contenente anche una nuova asserzione SAML in caso di modalità SAML) ed un rinnovamento del cookie di sessione per altri 60 minuti.</p>
+<p>Qualora si volesse rinnovare la sessione dal proprio SP sarà perciò necessario cancellare il cookie di sessione del proprio sito entro i 60 minuti (es. a 50 minuti) e redirigere l’utente ad una propria pagina privata che richiede l’autenticazione per l’accesso. A questo punto il SP rigirerà l’utente all’IdP Cohesion che, vedendo ancora valida la sessione, aggiornerà il cookie di sessione di altri 60 minuti e ritornerà un nuovo token o una nuova asserzione SAML valida altri 60 minuti senza mostrare l’interfaccia di autenticazione.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,518 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>Flusso di Autenticazione - TestDaris Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flusso-di-autenticazione" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="TestDaris Wiki" class="md-header__button md-logo" aria-label="TestDaris Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TestDaris Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Flusso di Autenticazione
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TestDaris Wiki" class="md-nav__button md-logo" aria-label="TestDaris Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    TestDaris Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_Sidebar/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sidebar
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_Footer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Footer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lutente-richiede-di-effettuare-il-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. L'utente richiede di effettuare il login
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lutente-sceglie-lidp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. L'utente sceglie l'IdP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-accesso-allapplicativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Accesso all'applicativo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="flusso-di-autenticazione">Flusso di Autenticazione</h1>
+<h2 id="1-lutente-richiede-di-effettuare-il-login">1. L'utente richiede di effettuare il login</h2>
+<p>L'utente desidera effettuare l'accesso ad un'applicazione che integra il sistema Cohesion, cliccando sul <em>login</em> viene reindirizzato al sistema Cohesion ID.</p>
+<h2 id="2-lutente-sceglie-lidp">2. L'utente sceglie l'IdP</h2>
+<p>L'utente seleziona l'<em>Identity Provider</em> per effettuare la procedura di riconoscimento. 
+Cohesion genera una richiesta di accesso in cui ottiene il <strong>Codice Fiscale</strong> e l'<strong>ID Sessione</strong> dell'utente.</p>
+<h2 id="3-accesso-allapplicativo">3. Accesso all'applicativo</h2>
+<p>Cohesion effettua una seconda chiamata al fine ottenere gli attributi dell'utente recuperati dall'Identity Provider scelto dall'utente.</p>
+<p>L'utente viene reindirizzato all'applicazione con un <em>token proprietario</em>, contente gli attributi necessari all'accesso.</p>
+<h1 id="auth-request">Auth Request</h1>
+<p>Per accedere ai servizi offerti da CohesionID, è necessario effettuare una chiamata in GET all'indirizzo <a href="https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FWAYF.aspx">https://cohesion2.regione.marche.it/SPManager/WAYF.aspx</a> con un parametro <em>AUTH</em> contenente dei parametri di autenticazione come quelli dell'esempio in basso.</p>
+<p>Il chiamante, in questo esempio, sarà <em>example.cohesion.it</em>:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;dsAuth xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://tempuri.org/Auth.xsd&quot;&gt;
+    &lt;auth&gt;
+        &lt;user/&gt;
+        &lt;id_sa/&gt;
+        &lt;id_sito&gt;ID SITO ASSEGNATO&lt;/id_sito&gt;
+        &lt;esito_auth_sa/&gt;
+        &lt;id_sessione_sa/&gt;
+        &lt;id_sessione_aspnet_sa/&gt;
+        &lt;url_validate&gt;https://example.cohesion.it/cohesionAuthCallback&lt;/url_validate&gt;
+        &lt;url_richiesta&gt;https://example.cohesion.it:443/cohesionErrorCallback&lt;/url_richiesta&gt;
+        &lt;esito_auth_sso/&gt;
+        &lt;id_sessione_sso/&gt;
+        &lt;id_sessione_aspnet_sso/&gt;
+        &lt;stilesheet&gt;AuthRestriction=1,2,3&lt;/stilesheet&gt;
+    &lt;/auth&gt;
+&lt;/dsAuth&gt;
+</code></pre>
+<p>In particolare:
+* <strong>id_sito</strong>: è l'identificativo assegnato all'integrazione specifica con Cohesion. Ogni sito ha un id_sito differente e univoco
+* <strong>url_validate</strong>: contiente l'URL al quale Cohesion reindirizza i dati ottenuti dall'Identity Provider utilizzato (Poste, Namirial, Cohesion, ecc...) dopo la login
+* <strong>url_richieste</strong>: contiene l'URL della pagina a cui tornare in caso di errori di autenticazione
+* <strong>stilesheet</strong>: contiente (opzionalmente) l'URL al quale Cohesion fa il <strong>redirect</strong> dopo aver eseguito la cancellazione della sessione in seguito ad una richiesta di logout. Contiene anche eventuali restrizioni sul livello di autenticazione richiesto (SPID livello 1, 2 o 3). Per specificare il livello di autenticazione è sufficiente inserire il parametro <code>&lt;AuthRestriction=1,2,3&gt;</code> indicando il numero del livello minimo accettabile (per accettare ogni tipo di autenticazione, impostare il parametro con 0,1,2,3)</p>
+<p>Esempio:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;dsAuth xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://tempuri.org/Auth.xsd&quot;&gt;
+    &lt;auth&gt;
+        &lt;user/&gt;
+        &lt;id_sa/&gt;
+        &lt;id_sito&gt;COHESION_EXAMPLE&lt;/id_sito&gt;
+        &lt;esito_auth_sa/&gt;
+        &lt;id_sessione_sa/&gt;
+        &lt;id_sessione_aspnet_sa/&gt;
+        &lt;url_validate&gt;https://example.cohesion.it/Login&lt;/url_validate&gt;
+        &lt;url_richiesta&gt;https://example.cohesion.it&lt;/url_richiesta&gt;
+        &lt;esito_auth_sso/&gt;
+        &lt;id_sessione_sso/&gt;
+        &lt;id_sessione_aspnet_sso/&gt;
+        &lt;stilesheet&gt;AuthRestriction=2,3;https://example.cohesion.it/LogOff&lt;/stilesheet&gt;
+    &lt;/auth&gt;
+&lt;/dsAuth&gt;
+</code></pre>
+<p>In questo esempio, diciamo a Cohesion che:
+* vogliamo che il token di autenticazione venga inoltrato in POST (per default) all'indirizzo https://example.cohesion.it/Login
+* vogliamo che, una volta fatto il logout, Cohesion reindirizzi all'URL https://example.cohesion.it/LogOff
+* il livello di autenticazione minimo accettabile è il 2 (Codice fiscale + password + PIN se l'IdP è Cohesion oppure SPID livello 2 negli altri casi).
+* se ci sono errori, vogliamo che Cohesion torni alla homepage https://example.cohesion.it</p>
+<p>L'XML contenuto nel parametro auth deve essere codificato in <strong>base64</strong> e poi con <strong>URL Encode</strong>. Un esempio di prodotto finale ha questa forma:</p>
+<pre><code class="language-xml">PD94bWwgdmVyc2lvbj0iMS4wIiA%2FPg0KPGRzQXV0aCB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxucz0iaHR0cDovL3RlbXB1cmkub3JnL0F1dGgueHNkIj4NCgk8YXV0aD4NCgkJPHVzZXIvPg0KCQk8aWRfc2EvPg0KCQk8aWRfc2l0bz5leGFtcGxlPC9pZF9zaXRvPg0KCQk8ZXNpdG9fYXV0aF9zYS8+DQoJCTxpZF9zZXNzaW9uZV9zYS8+DQoJCTxpZF9zZXNzaW9uZV9hc3BuZXRfc2EvPg0KCQk8dXJsX3ZhbGlkYXRlPmh0dHBzOi8vZXhhbXBsZS5jb2hlc2lvbi5pdC9Mb2dpbjwvdXJsX3ZhbGlkYXRlPg0KCQk8dXJsX3JpY2hpZXN0YT5odHRwczovL2V4YW1wbGUuY29oZXNpb24uaXQ8L3VybF9yaWNoaWVzdGE+DQoJCTxlc2l0b19hdXRoX3Nzby8+DQoJCTxpZF9zZXNzaW9uZV9zc28vPg0KCQk8aWRfc2Vzc2lvbmVfYXNwbmV0X3Nzby8+DQoJCTxzdGlsZXNoZWV0PkF1dGhSZXN0cmljdGlvbj0yLDM7aHR0cHM6Ly9leGFtcGxlLmNvaGVzaW9uLml0L0xvZ09mZjwvc3RpbGVzaGVldD4NCgk8L2F1dGg+DQo8L2RzQXV0aD4
+
+</code></pre>
+<h1 id="cosa-contiene-il-token-cohesion-dopo-lautenticazione">Cosa contiene il token Cohesion dopo l'autenticazione?</h1>
+<p>Dopo l'autenticazione dell'utente, Cohesion effettua una chiamata <strong>POST</strong> all'indirizzo specificato in <strong>url_validate</strong> nel cui body verrà specificato un token di autenticazione. 
+Nel body ci sarà un elemento <em>auth</em> codificato in base64 e URL Encoded che conterrà un XML di questo tipo:</p>
+<pre><code class="language-xml">
+&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;dsAuth xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://tempuri.org/Auth.xsd&quot;&gt;
+    &lt;auth&gt;
+        &lt;user&gt;RSSMRA85D18F051Y&lt;/user&gt;
+        &lt;id_sa/&gt;
+        &lt;id_sito&gt;example&lt;/id_sito&gt;
+        &lt;esito_auth_sa/&gt;
+        &lt;id_sessione_sa/&gt;
+        &lt;id_sessione_aspnet_sa/&gt;
+        &lt;url_validate&gt;https://example.cohesion.it/Login&lt;/url_validate&gt;
+        &lt;url_richiesta&gt;https://example.cohesion.it&lt;/url_richiesta&gt;
+        &lt;esito_auth_sso&gt;OK&lt;/esito_auth_sso&gt;
+        &lt;id_sessione_sso&gt;A5D64899EBCEE1FA6B3E8FB3D3D358D7E5843EA25EDFD62277CACE8A5EF23B1C5E6FAB916F333B0AFB0FAE6C4CDF7B8E8DEE461E8661DB04F5FFB01BC0EF9FCB90EEA2ACA7988119EFE17D5C3BB58BC890D75D724D434D7D60C2F451F6A51D1DFFA900EF0AAA631A51458860C6CEC7B1EBC525561624208066DF276314F41F6EC258CA3F&lt;/id_sessione_sso&gt;
+        &lt;id_sessione_aspnet_sso&gt;ufrq00x4f0cq2yog2ozv4lxx;https://idp.namirialtsp.com/idp;https://example.cohesion.it/LogOff;AAdzZWNyZXQxGLSQhZFb4TSPKKPNCGfO5MaCcJ99DiuEnIzpO4YvtOrgf+6qvwyEVOguFDCVbyPcZ2hhjbBtPtuCWUGs+FYX9zREfvZ1heshK7yzE24MU7JsIBK17atMdbL31QbDPNKbH2wiswXhL2CJGjY=;AAdzZWNyZXQxGLSQhZFb4TSPKKPNCGfO5MaCcJ99DiuEnIzpO4YvtOrgf+6qvwyEVOguFDCVbyPcZ2hhjbBtPtuCWUGs+FYX9zREfvZ1heshK7yzE24MU7JsIBK17atMdbL31QbDPNKbH2wiswXhL2CJGjY=;&lt;/id_sessione_aspnet_sso&gt;
+        &lt;stilesheet&gt;AuthRestriction=1,2,3;https://example.cohesion.it/LogOff&lt;/stilesheet&gt;
+        &lt;ip xmlns=&quot;&quot;&gt;cohesion2.regione.marche.it&lt;/ip&gt;
+        &lt;AuthRestriction xmlns=&quot;&quot;&gt;1,2,3&lt;/AuthRestriction&gt;
+        &lt;UType xmlns=&quot;&quot;&gt;CD&lt;/UType&gt;
+        &lt;purpose xmlns=&quot;&quot;/&gt;
+        &lt;url_logout xmlns=&quot;&quot;&gt;https://example.cohesion.it/LogOff&lt;/url_logout&gt;
+        &lt;cittad xmlns=&quot;&quot;&gt;1&lt;/cittad&gt;
+    &lt;/auth&gt;
+&lt;/dsAuth&gt;
+</code></pre>
+<p>Queste informazioni contengono solamente il codice fiscale dell'utente, ma non i suoi attributi.
+Per ottenere gli attributi completi, è necessario effettuare una chiamata GET o POST all'indirizzo <a href="https://colab.research.google.com/corgiredirector?site=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FwebCheckSessionSSO.aspx">https://cohesion2.regione.marche.it/SPManager/webCheckSessionSSO.aspx</a> con i seguenti parametri:</p>
+<pre><code class="language-html">Operation=GetCredential&amp;IdSessioneSSO={id_sessione_sso}&amp;IdSessioneASPNET={id_sessione_aspnet_sso}
+</code></pre>
+<p>Il token <em>SAML</em> restituito da Cohesion avrà la forma seguente:</p>
+<pre><code class="language-xml">&lt;Signature xmlns=&quot;http://www.w3.org/2000/09/xmldsig#&quot;&gt;
+    &lt;SignedInfo&gt;
+        &lt;CanonicalizationMethod Algorithm=&quot;http://www.w3.org/TR/2001/REC-xml-c14n-20010315&quot;/&gt;
+        &lt;SignatureMethod Algorithm=&quot;http://www.w3.org/2000/09/xmldsig#rsa-sha1&quot;/&gt;
+        &lt;Reference URI=&quot;#SignedXmlId&quot;&gt;
+            &lt;DigestMethod Algorithm=&quot;http://www.w3.org/2000/09/xmldsig#sha1&quot;/&gt;
+            &lt;DigestValue&gt;rNHSy/TcTBIweMerIO3jizVm7u0=&lt;/DigestValue&gt;
+        &lt;/Reference&gt;
+    &lt;/SignedInfo&gt;
+    &lt;SignatureValue&gt;
+        Oz9wACp9Rxo4Z4pC8o61iXuVSJNO+UcszPNcAMNFUAY0I17IeGnB93JpwEWGbPfqn5a+i3IQdNsqlIbQtwAGovBQ6DTTb85kDo4YDue26o7a4np5DfwnO6SuhHsBHMbTvnI9A+45Q7Li4On+eELEQWFRrbS11MmwRYBxR5m5PWKupkX3O2r9JtG6tuKwi/L5+A4U/MqLKDdUm9/TX1lzn5c23XpQgiYpkGrwRqp+Q1Dsem7FcV868VYvgwYkRkj/jNgLFtcdoFij+qBRZi47EUa35KeZgP5V1ENcYigG0OXQQbdavCnPcE3EHjEL3ApkuPNVuSbJZv5TjgFdCpqjXg==
+    &lt;/SignatureValue&gt;
+    &lt;KeyInfo&gt;
+        &lt;X509Data&gt;
+            &lt;X509Certificate&gt;
+                MIIGtDCCBJygAwIBAgITLAAAAIIFAntkot9CUgAAAAAAgjANBgkqhkiG9w0BAQsFADBXMRUwEwYKCZImiZPyLGQBGRYFaW50cmExHTAbBgoJkiaJk/IsZAEZFg1yZWdpb25lbWFyY2hlMR8wHQYDVQQDExZSZWdpb25lIE1hcmNoZSBTdWJDQTAxMB4XDTE4MDIxOTA5MjgwM1oXDTIyMDIxODA5MjgwM1owgcIxCzAJBgNVBAYTAklUMQ4wDAYDVQQIEwVJdGFseTEPMA0GA1UEBxMGQW5jb25hMRcwFQYDVQQKEw5SZWdpb25lIE1hcmNoZTEtMCsGA1UECxMkUC5GLiBJbmZvcm1hdGljYSBlIENyZXNjaXRhIERpZ2l0YWxlMRcwFQYDVQQDEw5DbGllbnRDb2hlc2lvbjExMC8GCSqGSIb3DQEJARYiaGVscGRlc2tDb2hlc2lvbkByZWdpb25lLm1hcmNoZS5pdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALbvK/Y/2uiFLqJoBmLHyKB7a3EnfqJJ+ySQEA9K1V+PEaRacctKmTDKRF5BHuIs1mCJDGcyz79kFyu+FyQL6LwL4PZ1PB+SsSVtnh+jCjO+4a/VYoC2t1/KJ7wlYQ0Wh22RVVfcqgaweyfaswBbdO+PyMPJ13LqMx6sC3m2oJkIzEvTSZRkxGPJAaduyIHjjjmZgXLFxnQqUBHrOANYoPJLyxJtN1UrEAjcZL3okCs3I4zv2hknmiV6gqFNPYVptU6b1k8MJPbiUpwxxfZt+ZInyad8egb9V3FLp6M5PU7QEVDHec2PUFONjHSe04yDwv1dYjwTdJx7ZzUzvHHYuBECAwEAAaOCAgswggIHMAsGA1UdDwQEAwIFoDA8BgkrBgEEAYI3FQcELzAtBiUrBgEEAYI3FQiHv+4hg+DuDYfFhR6H2P57woNRTYSKtleCuuwpAgFkAgEVMB0GA1UdDgQWBBQMQ+vWVxhmUh5WEF974KQX3J2JKTAfBgNVHSMEGDAWgBQ1CQik+pfAKExgnMYzrKUCwbrhyzCBmAYDVR0fBIGQMIGNMIGKoIGHoIGEhkBodHRwOi8vcGtpMS5yZWdpb25lLm1hcmNoZS5pdC9jcmwvUmVnaW9uZSUyME1hcmNoZSUyMFN1YkNBMDEuY3JshkBodHRwOi8vcGtpMi5yZWdpb25lLm1hcmNoZS5pdC9jcmwvUmVnaW9uZSUyME1hcmNoZSUyMFN1YkNBMDEuY3JsMIGsBggrBgEFBQcBAQSBnzCBnDBMBggrBgEFBQcwAoZAaHR0cDovL3BraTEucmVnaW9uZS5tYXJjaGUuaXQvYWlhL1JlZ2lvbmUlMjBNYXJjaGUlMjBTdWJDQTAxLmNydDBMBggrBgEFBQcwAoZAaHR0cDovL3BraTIucmVnaW9uZS5tYXJjaGUuaXQvYWlhL1JlZ2lvbmUlMjBNYXJjaGUlMjBTdWJDQTAxLmNydDATBgNVHSUEDDAKBggrBgEFBQcDATAbBgkrBgEEAYI3FQoEDjAMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4ICAQAd15k3Qub5SVaNRr2CfX7MOQnavfienMWejpDn0IORfdk1pDf/+sc8Kd/5N1qaVKY3emCgVpx1lakrbTCHKEiJWzlKQ3nqzTrsP4NVAegybE7srps00KV6IkhurwXf+AV1lCnIm2/0KtCZC8V302CR9vwCk1EVJZQLSGIx4EZGhOhN8dy3GQw/KYBJZs60F2ilXH3VDBS60gmnd0rnfcnZ9QbA3scQzL4ZZImV356sHXGkaL1rsuCq1cOxecVoZ1h0Ase2oieUCCBAffLTtQhcvowYfjJG36LEyIXtLZqed0i+C8ESumxZmgsOrNIRxem36Dt2u1CAX+oD8M/4+tzzVkDHy2WxY4S7VHVKXvYC8NkQMlD3NkurduLQ6r1RkoLgQBeLAXOFMV3J7nw8fnP8vQ4nHgposzlEefcOJl1iIhn8CQKAqHDUIRqYRMfM/vRgkK18iyYkUo2T0bzji1CSHXnTn9k9BCFKJLc7iv7p8isslOoqnFdkHZI4LTVENTYhklwlA1E/0baevMv6rwtJp5zFoWOZUCvfshdUt90apYY2NmWBPJyE5x7plqMPIzwtccPWc4/Az9tmBRHewi8a3YEE99R6W/w8vfM4TKAbkHBkpS1ue6WAWfzEQEqfdkSN57c5pk54unkvYnMum5sS4juuReRb5aKqgmvh4GzO8A==
+            &lt;/X509Certificate&gt;
+        &lt;/X509Data&gt;
+    &lt;/KeyInfo&gt;
+    &lt;Object Id=&quot;SignedXmlId&quot;&gt;
+        &lt;profile timestamp=&quot;Tue, 25 Jan 2022 22:02:49 GMT&quot; xmlns=&quot;&quot;&gt;
+            &lt;base&gt;
+                &lt;placeOfBirth&gt;F051&lt;/placeOfBirth&gt;
+                &lt;localita_nascita&gt;ROMA&lt;/localita_nascita&gt;
+                &lt;address&gt;Via dei matti 28 60044 ANCONA AN&lt;/address&gt;
+                &lt;indirizzo_residenza&gt;Via dei matti 28 60044 ANCONA AN&lt;/indirizzo_residenza&gt;
+                &lt;gender&gt;M&lt;/gender&gt;
+                &lt;sesso&gt;M&lt;/sesso&gt;
+                &lt;digitalAddress&gt;xxxxxxxxxxx@pec.it&lt;/digitalAddress&gt;
+                &lt;email_certificata&gt;xxxxxxxxxxx@pec.it&lt;/email_certificata&gt;
+                &lt;familyName&gt;ROSSI&lt;/familyName&gt;
+                &lt;cognome&gt;ROSSI&lt;/cognome&gt;
+                &lt;name&gt;MARIO&lt;/name&gt;
+                &lt;nome&gt;MARIO&lt;/nome&gt;
+                &lt;dateOfBirth&gt;1985-04-18&lt;/dateOfBirth&gt;
+                &lt;data_nascita&gt;18/04/1985&lt;/data_nascita&gt;
+                &lt;spidCode&gt;NAMI0002653481&lt;/spidCode&gt;
+                &lt;countyOfBirth&gt;RM&lt;/countyOfBirth&gt;
+                &lt;provincia_nascita&gt;RM/provincia_nascita&gt;
+                &lt;fiscalNumber&gt;TINIT-RSSMRA85D18F051Y&lt;/fiscalNumber&gt;
+                &lt;codice_fiscale&gt;RSSMRA85D18F051Y&lt;/codice_fiscale&gt;
+                &lt;email&gt;mario.rossi@regione.marche.it&lt;/email&gt;
+                &lt;companyFiscalNumber/&gt;
+                &lt;tipo_autenticazione&gt;PIN&lt;/tipo_autenticazione&gt;
+                &lt;login&gt;RSSMRA85D18F051Y&lt;/login&gt;
+                &lt;samlResponseBase64&gt;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgi...&lt;/samlResponseBase64&gt;
+            &lt;/base&gt;
+        &lt;/profile&gt;
+    &lt;/Object&gt;
+</code></pre>
+<p>Gli attributi dell'utente sono contenuti nell'oggetto <em>Object</em>. Gli attributi restituiti possono variare in base all'Identity Provider, al livello di autenticazione e dalle impostazioni dell'utente.</p>
+<p><strong>NOTA BENE</strong>: <em>Object</em> contiene anche il token SAML in <code>samlResponseBase64</code> il cui valore è quello della <em>SAMLResponse</em> originale restituita dall'Identity Provider scelto dall'utente.</p>
+<h1 id="come-effettuare-il-logout">Come effettuare il logout?</h1>
+<p>Per effettuare il <em>logout</em> basterà semplicemente chiamare lo stesso endpoint utilizzato per ottenere gli attributi dell'utente andando a modificare il parametro <strong>Operation</strong> e specificando <em>LogoutSito</em> invece di <em>GetCredential</em></p>
+<p>Nel nostro esempio</p>
+<pre><code class="language-xml">https://cohesion2.regione.marche.it/SPManager/webCheckSessionSSO.aspx?Operation=LogoutSito&amp;IdSessioneSSO=A5D64899EBCEE1FA6B3E8FB3D3D358D7E5843EA25EDFD62277CACE8A5EF23B1C5E6FAB916F333B0AFB0FAE6C4CDF7B8E8DEE461E8661DB04F5FFB01BC0EF9FCB90EEA2ACA7988119EFE17D5C3BB58BC890D75D724D434D7D60C2F451F6A51D1DFFA900EF0AAA631A51458860C6CEC7B1EBC525561624208066DF276314F41F6EC258CA3F&amp;IdSessioneASPNET=ufrq00x4f0cq2yog2ozv4lxx;https://idp.namirialtsp.com/idp;https://q-marche.turitweb.it/LogOff;AAdzZWNyZXQxGLSQhZFb4TSPKKPNCGfO5MaCcJ99DiuEnIzpO4YvtOrgf+6qvwyEVOguFDCVbyPcZ2hhjbBtPtuCWUGs+FYX9zREfvZ1heshK7yzE24MU7JsIBK17atMdbL31QbDPNKbH2wiswXhL2CJGjY=;AAdzZWNyZXQxGLSQhZFb4TSPKKPNCGfO5MaCcJ99DiuEnIzpO4YvtOrgf+6qvwyEVOguFDCVbyPcZ2hhjbBtPtuCWUGs+FYX9zREfvZ1heshK7yzE24MU7JsIBK17atMdbL31QbDPNKbH2wiswXhL2CJGjY=;
+
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+    
+  </body>
+</html>
