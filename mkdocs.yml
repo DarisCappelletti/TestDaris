@@ -8,6 +8,13 @@ nav:
 
 theme:
   name: material
+  
+pages:
+  - 'altre_pagine.md'
+  # Aggiungi altre pagine che non devono includere _Sidebar e _Footer
+
+  - 'docs/*':  # Tutti i file nella cartella "docs"
+      include: ['_Sidebar.md', '_Footer.md']
 
 docs_dir: docs
 site_dir: site
