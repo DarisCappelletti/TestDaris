@@ -1,5 +1,9 @@
 site_name: TestDaris
 
+theme:
+  name: readthedocs
+  nav_style: dark
+
 nav:
   - Home: 'docs/Home.md'
   - Faq: 'docs/FAQ.md'
