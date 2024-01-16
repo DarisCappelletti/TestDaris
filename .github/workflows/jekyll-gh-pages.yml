@@ -26,3 +26,14 @@ jobs:
         git add .
         git commit -m "Update wiki files"
         git push
+
+    - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+    - name: Install MkDocs
+        run: npm install -g mkdocs
+
+    - name: Build MkDocs
+        run: mkdocs build

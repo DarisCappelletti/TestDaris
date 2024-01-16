@@ -1,0 +1,10 @@
+site_name: TestDaris Wiki
+
+nav:
+  - Home: 'index.md'
+  - Sidebar: '_Sidebar.md'
+  - Footer: '_Footer.md'
+  # Altri file o collegamenti della tua Wiki
+
+theme:
+  name: material
