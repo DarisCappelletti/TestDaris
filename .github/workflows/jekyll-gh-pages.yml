@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Copy wiki files to root
-      run: cp -R ./wiki/* .
+      run: cp -R /wiki/* .
 
     - name: Commit and push changes
       run: |
