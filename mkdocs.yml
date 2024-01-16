@@ -5,8 +5,8 @@ theme:
   nav_style: dark
 
 nav:
-  - Home: 'docs/Home.md'
-  - Faq: 'docs/FAQ.md'
+  - Home: 'Home'
+  - Faq: 'FAQ'
 
 extra_javascript:
   - 'docs/_Footer.md'
