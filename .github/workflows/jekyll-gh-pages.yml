@@ -19,13 +19,11 @@ jobs:
         cp -R ./wiki_tmp/* .
         rm -rf wiki_tmp
 
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
-
     - name: Install MkDocs
       run: npm install -g mkdocs
+
+    - name: Install MkDocs Material theme
+      run: pip install mkdocs-material
 
     - name: Build MkDocs
       run: mkdocs build
