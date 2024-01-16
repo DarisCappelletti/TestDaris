@@ -4,9 +4,7 @@ theme:
   name: readthedocs
   nav_style: dark
 
-nav:
-  - Home: 'Home'
-  - Faq: 'FAQ'
+nav: custom_nav.yml
 
 extra_javascript:
   - 'docs/_Footer.md'

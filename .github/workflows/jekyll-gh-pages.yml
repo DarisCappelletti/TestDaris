@@ -29,6 +29,19 @@ jobs:
     - name: Build MkDocs
       run: mkdocs build --config-file mkdocs.yml
 
+    - name: Read _Sidebar.md and generate custom nav
+      run: |
+        SIDEBAR_CONTENT=$(cat docs/_Sidebar.md)
+        CUSTOM_NAV=$(echo "$SIDEBAR_CONTENT" | awk '
+            BEGIN { indent = ""; }
+            /^#/ { print "* " $2; indent = "  "; next; }
+            /^##/ { print indent "* " $3; indent = "    "; next; }
+            /^###/ { print indent "* " $4; next; }
+            { print; }
+        ')
+
+        echo "$CUSTOM_NAV" > custom_nav.yml
+        git add custom_nav.yml
     - name: Commit and push changes
       run: |
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
