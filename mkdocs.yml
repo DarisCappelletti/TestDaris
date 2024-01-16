@@ -13,9 +13,7 @@ extra_javascript:
 
 plugins:
   - search
-  - include:
-      directory: 'docs'
-      sort: true
+  - include_dir_to_nav
 
 markdown_extensions:
   - admonition
