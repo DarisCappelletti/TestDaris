@@ -4,9 +4,6 @@ theme:
   name: readthedocs
   nav_style: dark
 
-nav:
-  - Home: 'Home'
-
 extra_javascript:
   - 'docs/_Footer.md'
   - 'docs/_Sidebar.md'
