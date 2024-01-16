@@ -20,15 +20,6 @@ jobs:
         cp -R ./wiki_tmp/* ./docs
         rm -rf wiki_tmp
 
-    - name: Install MkDocs
-      run: npm install -g mkdocs
-
-    - name: Install MkDocs Material theme
-      run: pip install mkdocs-material
-
-    - name: Build MkDocs
-      run: mkdocs build --config-file mkdocs.yml
-
     - name: Read _Sidebar.md and generate custom nav
       run: |
         SIDEBAR_CONTENT=$(cat docs/_Sidebar.md)
@@ -41,7 +32,16 @@ jobs:
         ')
 
         echo "$CUSTOM_NAV" > custom_nav.yml
-        git add custom_nav.yml
+
+    - name: Install MkDocs
+      run: npm install -g mkdocs
+
+    - name: Install MkDocs Material theme
+      run: pip install mkdocs-material
+
+    - name: Build MkDocs
+      run: mkdocs build --config-file mkdocs.yml
+
     - name: Commit and push changes
       run: |
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
