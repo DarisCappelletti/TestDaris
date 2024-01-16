@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Parametri della Richiesta di Autenticazione - TestDaris</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Parametri della Richiesta di Autenticazione";
+        var mkdocs_page_input_path = "Parametri-della-Richiesta-di-Autenticazione.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TestDaris
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../docs/Home.md">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../docs/FAQ.md">Faq</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TestDaris</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Parametri della Richiesta di Autenticazione</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="parametri-della-richiesta-di-autenticazione">Parametri della Richiesta di Autenticazione</h1>
+<p>In questa sezione definiamo in dettaglio i parametri di autenticazione presenti nel tag <code>stilesheet</code> della Richiesta di Autenticazione effettuata da Cohesion.</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;</span>
+<span class="nt">&lt;dsAuth</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="na">xmlns=</span><span class="s">&quot;http://tempuri.org/Auth.xsd&quot;</span>
+<span class="err">&lt;auth</span><span class="nt">&gt;</span>
+<span class="nt">&lt;user</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sa</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sito&gt;</span>SITE_ID<span class="nt">&lt;/id_sito&gt;</span>
+<span class="nt">&lt;esito_auth_sa</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sessione_sa</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sessione_aspnet_sa</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;url_validate&gt;</span>
+https://cohesion2.regione.marche.it/TestCohesion/ValidateFE.aspx?ReturnUrl=%2ftestcohesion%2fprivato%2fpagina_protetta.aspx<span class="nt">&lt;/url_validate&gt;</span>
+<span class="nt">&lt;url_richiesta&gt;</span>
+https://cohesion2.regione.marche.it:443/testcohesion/privato/pagina_protetta.aspx<span class="nt">&lt;/url_richiesta&gt;</span>
+<span class="nt">&lt;esito_auth_sso</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sessione_sso</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;id_sessione_aspnet_sso</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;stilesheet&gt;</span>AuthRestriction=3,2,1,0;
+https://cohesion2.regione.marche.it/testcohesion/Index.aspx;UType=d;purpose=PG|PF|LP;eidas=3;SpidMode=OIDC;CieMode=OIDC;IPA=c_000<span class="nt">&lt;/stilesheet&gt;</span>
+<span class="nt">&lt;/auth&gt;</span>
+<span class="nt">&lt;/dsAuth&gt;</span>
+</code></pre></div>
+
+<h2 id="authrestriction"><code>AuthRestriction</code></h2>
+<p>Il parametro <code>AuthRestriction</code> stabilisce il livello di autenticazione minimo richiesto associandolo a un valore numerico (0,1,2,3). Nello specifico:</p>
+<p>0= Accesso solo con password - SPID Livello 1</p>
+<p>1= Accesso con password e PIN o token OTP - SPID Livello 2</p>
+<p>2= Accesso con smartcard - SPID Livello 3</p>
+<p>3= Accesso con Dominio Active Directory REGIONEMARCHE</p>
+<p>Ad esempio, impostando il parametro come
+<code>AuthRestriction=3,2,1</code> stabiliamo che l'accesso sarà consentito ad utenze che dispongono di credenziali SPID di Livello 2 e 3, nonché tramite Dominio, ma non sarà possibile utilizzare credenziali SPID di primo livello.</p>
+<h2 id="url-di-reindirizzamento">URL di reindirizzamento</h2>
+<p>L'URL al quale l'utente sarà reindirizzato dopo aver effettuato l'autenticazione.</p>
+<h2 id="utype"><code>UType</code></h2>
+<p>Specifica la tipologia di utente che accede tramite Cohesion. Si distinguono 3 differenti tipologie:</p>
+<p><code>UType=c</code> = Accesso per soli cittadini, l'autenticazione tramite credenziali Cohesion è disabilitata</p>
+<p><code>UType=d</code> = Accesso per soli Dipendenti della PA, viene abilitata l'autenticazione tramite credenziali Cohesion</p>
+<p><code>UType=cd</code> = Accesso per Dipendenti delle PA e Cittadini, l'autenticazione tramite credenziali Cohesion è abilitata (opzione di default)</p>
+<p>Ad esempio, impostando il parametro come segue <code>UType=c</code> stabiliamo che l'unica tipologia di utenza accettabile è il cittadino, disabilitando l'accesso tramite credenziali Cohesion</p>
+<h2 id="purpose"><code>purpose</code></h2>
+<p>Definisce il livello di sicurezza SPID in base alla tipologia (o scopo) dell'utente. Si distinguono in:</p>
+<p>PF = SPID personale per Persona Fisica, costituisce l'identità di un cittadino che accede ai servizi della PA</p>
+<p>LP = SPID del Libero Professionista, racchiude i dati i dati della persona fisica ed eventuali attributi che caratterizzano la sua professione.</p>
+<p>PG = SPID Giuridico, rilasciata ad una persona fisica a cui vengono associati anche i dati della persona giuridica per cui opera.</p>
+<p>Ad esempio, impostando il parametro come <code>purpose=PG</code> Cohesion consentirà l'accesso solamente alle persone dotate di SPID Giuridico.</p>
+<p>Per la lista completa dei gestori di Identità Digitali che supportano le tipologie PG e LP, si prega di consultare il seguente link: https://www.agid.gov.it/it/piattaforme/spid</p>
+<h2 id="eidas"><code>eidas</code></h2>
+<p>Abilita il login tramite il nodo italiano eIDAS specificandone il livello di autenticazione (1,2,3).</p>
+<p>Livello 1 = Autenticazione a singolo fattore (passowrd)</p>
+<p>Livello 2 = Autenticazione a doppio fattore (password e Token OTP)</p>
+<p>Livello 3 = Autenticazione tramite smart card</p>
+<p>Ad esempio, impostando il parametro come <code>eidas=3</code> sarà consentito l'accesso solo tramite l'utilizzo di smart card, escludendo i livelli di autenticazione più bassi.</p>
+<h2 id="spidmode"><code>SpidMode</code></h2>
+<p>Definisce il protocollo di autenticazione che CohesionID deve utilizzare per comunicare con la piattaforma nazionale SPID. </p>
+<p>Se non specificato, verrà utilizzato il protocollo di default SAML. Impostando il parametro come <code>SpidMode=OIDC</code> verrà utilizzato il nuovo protocollo OpenID Connect </p>
+<h2 id="ciemode"><code>CieMode</code></h2>
+<p>Definisce il protocollo di autenticazione che CohesionID deve utilizzare per comunicare con la piattaforma nazionale CIE. </p>
+<p>Se non specificato, verrà utilizzato il protocollo di default SAML mentre, impostando il parametro come <code>CieMode=OIDC</code>, verrà utilizzato il nuovo protocollo OpenID Connect </p>
+<h2 id="ipa"><code>IPA</code></h2>
+<p>L'IPA è l'Indice delle Pubbliche Amministrazioni, univoco ad ogni ente della Pubblica Amministrazione. </p>
+<p>Specificando questo parametro, CohesionID effettuerà la richiesta di autenticazione verso le piattaforme nazionali ed europee per conto dell'ente aggregato specificato.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../docs/_Footer.md"></script>
+      <script src="../docs/_Sidebar.md"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

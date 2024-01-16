@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Integrazione classe C - TestDaris</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Integrazione classe C";
+        var mkdocs_page_input_path = "Integrazione-Classe-C#.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TestDaris
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../docs/Home.md">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../docs/FAQ.md">Faq</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TestDaris</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Integrazione classe C</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="integrazione-classe-c">Integrazione classe C</h1>
+<p>Con il presente si vuole fornire una panoramica completa delle modalità di integrazione e delle configurazioni di utilizzo del Service Provider fornito con Cohesion in applicativi web che richiedono autenticazione e profilazione utente.
+Verrà in dettaglio descritta la procedura di installazione in ambiente IIS mediante classe C# CohesionSSO.cs e la configurazione per l’utilizzo classico ed il funzionamento in modalità federata SAML2.0.
+Questa modalità è sempre preferibile e in particolare è necessaria qualora non venga rilasciato all’ente un certificato personale per la comunicazione con Cohesion.</p>
+<blockquote>
+<p><strong><a href="https://github.com/regione-marche/Cohesion2NETFramework">Scarica l'applicazione di test e la classe di integrazione</a></strong></p>
+</blockquote>
+<p>Per integrare l’autenticazione in Cohesion nel proprio sito è sufficiente aggiungere la classe C# CohesionSSO.cs al proprio progetto .NET e richiamare i metodi ValidateFE e LogoutFE rispettivamente nel codice della pagina che gestisce la form authentication e della pagina di logout. I metodi vanno richiamati dopo aver inizializzato la classe mediante i costruttori disponibili.
+Di seguito un esempio di codice da inserire nella pagina di form authentication:</p>
+<p><code>CohesionSSO cohesionSSO = new CohesionSSO(Request, Response, Session);
+ cohesionSSO.ValidateFE();</code></p>
+<p>Una volta autenticati il token di autenticazione verrà automaticamente salvato nella variabile di sessione “<em>TOKEN</em>”.
+In <strong>TestCohesion.zip</strong> è presente un esempio di progetto .NET 2010 in cui si mostra come integrare Cohesion mediante la classe CohesionSSO.</p>
+<p><strong>La classe dispone di 2 costruttori</strong>:
+1. un costruttore base con i soli parametri per recuperare le variabili di richiesta http, risposta http e sessione http.
+In questo modo tutti i parametri richiesti dovranno essere specificati nel web.config. </p>
+<blockquote>
+<p>In particolare andranno impostate le seguenti chiavi nel web.config:
+*  <strong>sso.check.url</strong> : parametro fisso della pagina SSO di Cohesion.
+*  <strong>webCheckSessionSSO</strong> : parametro fisso della pagina di recupero token di autenticazione.
+*  <strong>sso.additionalData</strong> : parametri opzionali di autenticazione.
+*  <strong>site.URLLogout</strong> : url della propria pagina di logout relativo alla posizione della pagina protetta; è possibile specificare il parametro ReturnUrl con l'url della pagina a cui ritornare una volta effettuato il logout.
+*  <strong>site.id_sito</strong>: IDSito fornito da Regione Marche la momento della abilitazione alla integrazione cohesion.
+*  <strong>site.IndexURL</strong>: url della propria pagina a cui ritornare in caso di errore di autenticazione.</p>
+</blockquote>
+<p>Esempio di codice di configurazione in <strong>web.config</strong>:</p>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">appSettings</span><span class="o">&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.check.url&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;http://cohesion2.regione.marche.it/SSO/Check.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.webCheckSessionSSO&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;https://cohesion2.regione.marche.it/SSO/webCheckSessionSSO.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.additionalData&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.URLLogout&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;../Logout.aspx?ReturnUrl=index.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.id_sito&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;MYSITE&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.IndexURL&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;index.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">appSettings</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<ol>
+<li>Un costruttore completo con tutti i parametri richiesti:
+In questo modo non si avrà bisogno di specificare i parametri nel web.config ma si passeranno direttamente al costruttore:</li>
+</ol>
+<p><code>CohesionSSO cohesionSSO = new CohesionSSO(request, response, session,
+SSOCheckUrl, webCheckSessionSSOUrl, additionalData, indexUrl);</code></p>
+<hr />
+<p>Di seguito viene descritto un esempio di configurazione di questi parametri per utilizzare rispettivamente la modalità di funzionamento classica di Cohesion e la modalità di funzionamento federato mediante standard SAML2.0</p>
+<p><strong>Modalità di funzionamento SAML2.0</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">appSettings</span><span class="o">&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.check.url&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;http://cohesion2.regione.marche.it/SPManager/WAYF.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.webCheckSessionSSO&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;https://cohesion2.regione.marche.it/SPManager/webCheckSessionSSO.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.URLLogout&quot;</span><span class="w"> </span>
+<span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;../Logout.aspx?ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.IndexURL&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;index.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;site.id_sito&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;MYSITE&quot;</span><span class="o">/&gt;</span>
+<span class="w"> </span><span class="o">&lt;</span><span class="k">add</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="s">&quot;sso.additionalData&quot;</span><span class="w"> </span><span class="k">value</span><span class="o">=</span><span class="s">&quot;http://YOURHOST/YOURSITE/Logout.aspx&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">appSettings</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<p>Di seguito verranno descritti i campi che è possibile cambiare:
+* <strong>site.URLLogout</strong>: Contiene l’url della pagina di Logout dalla posizione della pagina autenticata. A differenza della modalità classica non è però possibile cambiare il parametro ReturnUrl in quanto strettamente dipendente alle funzionalità di logout di SAML.
+* <strong>site.IndexURL</strong>: se presente deve contenere l’url della propria pagina a cui ritornare in caso di errore di autenticazione.
+* <strong>sso.additionalData</strong>: Deve contenere obbligatoriamente il percorso completo della propria pagina di logout affinché il logout SAML funzioni correttamente. Può contenere altri due parametri opzionali: i livelli di autenticazione da mostrare (parametro AuthRestriction) e un flag per mostrare solo i meccanismi di accesso federato SPID, CIEID, CNS e l'accesso tramite dominio. I vari parametri vanno separati da punto e virgola ";".</p>
+<p>Per approfondimenti in merito alla configurazione dei parametri addizionali, è possibile far riferimento alla pagina <a href="https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Parametri-della-Richiesta-di-Autenticazione">Parametri della Richiesta di Autenticazione</a></p>
+<blockquote>
+<p>[Opzionale]</p>
+</blockquote>
+<p>Prima dell'URL di logout è possibile inserire la stringa AuthRestricion=0,1,2,3 dove i valori 0,1,2,3 indicano i livelli di autenticazione da mostrare nella pagina di login dell’Idp federato selezionato, in particolare:
+* 0 indica di mostrare l'autenticazione SAML "Password"
+* 1 indica di mostrare l'autenticazione SAML "Smartcard"
+* 2 indica di mostrare l'autenticazione SAML "SmartcardPKI"
+* 3 indica di mostrare l'autenticazione SAML "Kerberos"</p>
+<p>I seguenti valori sono standard SAML e dovrebbero essere riconosciuti per ogni IdP federato selezionato. Nel caso venga scelto Cohesion come Idp allora i valori saranno interpretati con le modalità di autenticazione già descritte nel punto a), a meno che non venga specificato l'altro parametro opzionale UType=c. E’ possibile nascondere o visualizzare le modalità di autenticazione togliendo o aggiungendo i rispettivi valori separati da una virgola. L’ordine non è influente.</p>
+<blockquote>
+<p>[Opzionale]</p>
+</blockquote>
+<p>Dopo l'URL di logout è possibile inserire la stringa eidas=1. L'inserimento di questa stringa abilita la login eIDAS nel sistema di autenticazione SAML 2.0 di Cohesion. Questa opzione è compatibile con tutte le altre fin qui indicate. 
+Es. AuthRestriction=2,1;http://host/YOURSITE/Logout.aspx;UType=c;eidas=1</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../docs/_Footer.md"></script>
+      <script src="../docs/_Sidebar.md"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

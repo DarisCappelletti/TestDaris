@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Come rinnovare il Token - TestDaris</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Come rinnovare il Token";
+        var mkdocs_page_input_path = "Rinnovo-del-Token.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TestDaris
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../docs/Home.md">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../docs/FAQ.md">Faq</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TestDaris</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Come rinnovare il Token</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="come-rinnovare-il-token">Come rinnovare il Token</h1>
+<p>Il Token di Cohesion ha validità di 60 minuti.
+Se si vuole rinnovare il Token è necessario che l'utente transiti nuovamente per la pagina di LogIn di Cohesion. 
+Questa operazione va fatta prima della scadenza del Token.</p>
+<p>Esempi:</p>
+<p><strong>1) Integrazione C#:</strong></p>
+<p>Per rinnovare il token è sufficiente reindirizzare l'utente alla propria pagina di login, in modo da eseguire nuovamente il codice</p>
+<div class="codehilite"><pre><span></span><code><span class="n">CohesionSSO</span><span class="w"> </span><span class="n">cohesionSSO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CohesionSSO</span><span class="p">(</span><span class="n">Request</span><span class="p">,</span><span class="w"> </span><span class="n">Response</span><span class="p">,</span><span class="w"> </span><span class="n">Session</span><span class="p">);</span>
+
+<span class="n">cohesionSSO</span><span class="p">.</span><span class="n">ValidateFE</span><span class="p">();</span>
+</code></pre></div>
+
+<p><strong>2) Integrazione Servlet Java:</strong></p>
+<p>Per rinnovare il token è sufficiente reindirizzare l'utente alla Servlet Java, di norma richiamata dalla pagina di login della applicazione.</p>
+<p>In entrambi i casi l'utente viene reindirizzato a Cohesion, il sistema verifica che ha già una sessione valida, genera un nuovo Token valido 60 minuti e reindirizza l'utente all'applicazione.</p>
+<p>Se si integra con modalità SPManager, per evitare che - al nuovo passaggio su Cohesion - venga riproposta all'utente la schermata di scelta del provider, impostare il parametro entityID passandolo alla pagina WAYF SAML.</p>
+<p>Ad esempio:</p>
+<ul>
+<li><strong>Cohesion Sviluppo</strong></li>
+</ul>
+<div class="codehilite"><pre><span></span><code>https://cohesion2sviluppo.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion.regione.marche.it:idp
+</code></pre></div>
+
+<ul>
+<li><strong>Cohesion Produzione</strong></li>
+</ul>
+<div class="codehilite"><pre><span></span><code>https://cohesion2.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion2.regione.marche.it:idp
+</code></pre></div>
+
+<p>ovvero passando il parametro entityID valorizzato con l'id dell'entità SAML a cui si vuole redirigere automaticamente (che nel caso di cohesion è cohesion.regione.marche.it:idp).</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../docs/_Footer.md"></script>
+      <script src="../docs/_Sidebar.md"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

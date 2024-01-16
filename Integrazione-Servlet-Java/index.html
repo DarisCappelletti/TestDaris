@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Integrazione mediante servlet Java - TestDaris</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Integrazione mediante servlet Java";
+        var mkdocs_page_input_path = "Integrazione-Servlet-Java.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> TestDaris
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../docs/Home.md">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../docs/FAQ.md">Faq</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">TestDaris</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Integrazione mediante servlet Java</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="integrazione-mediante-servlet-java">Integrazione mediante servlet Java</h1>
+<p>Con il presente si vuole fornire una panoramica completa delle modalità di integrazione e delle configurazioni di utilizzo del Service Provider fornito con Cohesion in applicativi web che richiedono autenticazione e profilazione utente.
+Verrà in dettaglio descritta la procedura di installazione in ambiente Java Servlet e la configurazione per l’utilizzo classico ed il funzionamento in modalità federata SAML2.0.</p>
+<blockquote>
+<p><strong><a href="https://cohesion.regione.marche.it/cohesioninformativo/materiale/integrazione%20mediante%20Servlet.zip">Scarica la Servlet Java ed il manuale</a></strong></p>
+<p><strong><a href="https://cohesion.regione.marche.it/cohesioninformativo/Portals/0/Download/CohesionServlet-3.0.zip">Scarica la versione per java8 e successive</a></strong></p>
+<p><strong><a href="https://cohesion.regione.marche.it/cohesioninformativo/Portals/0/Keystore_java.zip">Scarica il keystore valido a partire dal 16/02/2022</a></strong></p>
+</blockquote>
+<hr />
+<p><strong>Prerequisiti</strong>:
+* Apache Tomcat v6+, JBoss, Glassfish
+* Java v 1.6+</p>
+<p>La servlet per l’integrazione di Cohesion è stata riscritta in modo da essere compatibile anche con qualunque servlet container e non utilizzare librerie esterne e componenti aggiuntivi che ne potrebbero limitare la compatibilità.</p>
+<p>Inoltre è stato aggiunto il supporto alla funzionalità di logout, prima assente. Abbiamo quindi la servlet “Authentication” che fornisce Single Sign On e la servlet “Logout” che effettua il logout da Cohesion. Usando questo pacchetto, Cohesion potrà essere integrato in ogni tipologia di sito a prescindere dal linguaggio di progettazione (volendo anche in un sito .NET su IIS).</p>
+<p>Una volta configurata la servlet e lanciato l’ambiente Tomcat infatti, sarà sufficiente creare nel proprio sito una pagina di login che rediriga alla pagina servlet “Authentication” specificando il parametro ReturnUrl, che dovrà contenere l’url della pagina a cui la servlet ritornerà il token utente. Tale pagina può essere la stessa pagina di login, l’importante è che sia in grado di processare il token utente ricevuto via POST. Il token è firmato, eventualmente crittografato, e codificato in base64, perciò la pagina di login dovrà riuscire a decodificare la stringa base64, eventualmente decriptare il token mediante la chiave impostata nella servlet (l’algoritmo utilizzato è il 3-DES/ECB/NoPadding), ed infine volendo, verificare la firma del token Quest’ultimo passaggio in realtà non è strettamente necessario ai fini della sicurezza qualora la connessione ai server Cohesion sia fatta in HTTPS. Questo perché la servlet controlla automaticamente che il certificato SSL della pagina corrisponda effettivamente al nome DNS usato, e in caso negativo ritorna una notifica. Solo dopo questi passaggi si potrà autenticare l’utente ed aggiungere il token nella propria sessione.</p>
+<p>Nel pacchetto vengono fornite due pagine login di esempio; una sviluppata in JSP ed un'altra in PHP, insieme al certificato Cohesion necessario a verificare la firma digitale del token.</p>
+<p>Per effettuare il logout è invece sufficiente creare una pagina di logout che rediriga alla servlet “Logout”. È possibile anche in questo caso specificare il parametro ReturnUrl che sarà l’indirizzo a cui la servlet ridirigerà l’utente una volta effettuata la disconnessione da Cohesion. Nel pacchetto vengono fornite oltre alle pagine di login anche due semplici pagine di logout, una in JSP ed una in PHP.</p>
+<p><em>Di seguito verranno elencate le operazioni di configurazione da effettuare</em>:
+1. Effettuare il deploy del WAR: Nel caso di Apache Tomcat come servlet container, copiare il file CohesionServlet.war dentro la cartella webapp e lanciare Tomcat in modo da effettuare automaticamente il deploy della servlet. Nel caso Tomcat sia configurato per non effettuare il deploy automatico è sufficiente scompattare il file .war (è un archivio zip) nella cartella webapp/CohesionServlet.
+2. Importare i certificati CA della Regione Marche presenti nel keystore RegioneMarcheCA.keystore, nel keystore interno di java mediante il comando:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keytool</span><span class="w"> </span><span class="o">-</span><span class="n">importkeystore</span><span class="w"> </span><span class="o">-</span><span class="n">srckeystore</span><span class="w"> </span><span class="n">RegioneMarcheCA</span><span class="p">.</span><span class="na">keystore</span>
+</code></pre></div>
+
+<p>La password del keystore RegioneMarcheCA.keystore è “password” mentre la password dell’ keystore java di default dovrebbe essere “changeit”.</p>
+<p>Alternativamente a questa procedura è possibile lanciare Tomcat o JBoss specificando il keystore da utilizzare per i certificati CA; 
+I parametri da aggiungere alla variabile di sistema JAVA_OPTS comunemente usata in Tomcat e JBoss sono:</p>
+<div class="codehilite"><pre><span></span><code><span class="o">-</span><span class="n">Djavax</span><span class="p">.</span><span class="na">net</span><span class="p">.</span><span class="na">ssl</span><span class="p">.</span><span class="na">trustStore</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">RegioneMarcheCA</span><span class="p">.</span><span class="na">keystore</span>
+<span class="o">-</span><span class="n">Djavax</span><span class="p">.</span><span class="na">net</span><span class="p">.</span><span class="na">ssl</span><span class="p">.</span><span class="na">trustStorePassword</span><span class="o">=</span><span class="n">password</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p>Copiare il certificato personale presente nel pacchetto in una cartella sicura (non accessibile via web). Nel caso il certificato abbia estensione .pfx, è fondamentale rinominarlo in .p12. Qualora non sia stato fornito un certificato personale insieme alla servlet è possibile utilizzare la modalità di recupero sicuro del token di autenticazione specificando il parametro <strong>“webSso”</strong> descritto nel punto 4c. In tal caso il parametro <strong>“wsSso”</strong> presente nel punto 4c e tutti i parametri del punto 4a potranno essere ignorati. Questa è la modalità di default con cui viene fornita la servlet.</p>
+</li>
+<li>
+<p>Modificare il file di configurazione nella cartella webapp/CohesionServlet/WEB-INF/web.xml nel caso di Tomcat, impostando i seguenti parametri:</p>
+</li>
+</ol>
+<p><strong>a) Parametri relativi al certificato</strong>
+Qualora fosse stato rilasciato un certificato personale insieme alla servlet, questi parametri andranno obbligatoriamente cambiati in quanto sono specifici per il singolo certificato utente e sono presenti sia per la servlet di autenticazione che per quella di logout:
+* <strong>keystorePath</strong>: Inserire il percorso del certificato personale del punto 3).
+* <strong>keystoreType</strong>: Se il file è un .p12 o un .pfx rinominato in .p12 lasciare il valore PKCS12.
+* <strong>pwdKeystore</strong>: La password che protegge il certificato
+* <strong>pwdCertificate</strong>: La password che protegge la chiave privata. Solitamente è uguale a pwdKeystore
+* <strong>aliasCertificate</strong>: L'alias del certificato. Per visualizzarlo utilizzare il comando:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">keytool</span><span class="w"> </span><span class="o">-</span><span class="n">list</span><span class="w"> </span><span class="o">-</span><span class="n">keystore</span><span class="w"> </span><span class="o">&lt;</span><span class="n">certificato</span><span class="o">&gt;</span><span class="p">.</span><span class="na">p12</span><span class="w"> </span><span class="o">-</span><span class="n">storetype</span><span class="w"> </span><span class="n">pkcs12</span>
+</code></pre></div>
+
+<p>Il comando è presente nella cartella bin di Java e restituirà un output simile al seguente:</p>
+<p><code>be7446f14507a331c1b5b8ff70a66520_d0e8d7b1-bcb5-4128-9d8e-2fc4dc332132</code>, 30-ott-2012, PrivateKeyEntry, Impronta digitale certificato (SHA1): DC:DD:60:1C:9D:43:AF:9B:F7:6E:AE:6B:5A:D5:F7:14:33:D0:0C:5C</p>
+<p>Il primo valore terminato dalla virgola è l'alias da inserire.</p>
+<p><strong>b) Parametri relativi al token utente restituito</strong>
+Questi parametri sono opzionali e relativi solo all'invio del token tra la servlet e la pagina di login:
+* <strong>encryptionKey</strong>:Questo parametro è opzionale. Se impostato deve avere una lunghezza fissa di 24 caratteri e permetterà di restituire alla pagina di login il token utente crittografato usando l’algoritmo 3-DES/ECB/NoPadding. Il token sarà perciò prima firmato, poi crittografato ed infine convertito in base64 e inviato in POST alla pagina di login. L’utilizzo della cifratura del token è necessario qualora si utilizzi una pagina di login non protetta da connessione sicura https. Qualora la connessione sia in https è sufficiente la firma del token per garantire un livello sicurezza elevato.
+* <strong>urlRichiesta</strong>: Questo valore va impostato solo nel caso si scelga di non inviare il parametro ReturnUrl durante la chiamata alla servlet di autenticazione per mezzo della pagina di login. In tal caso la servlet restituirà il token utente in <strong>POST</strong> alla pagina specificata in <strong>urlRichiesta</strong>, altrimenti sarà restituito alla pagina specificata in <strong>ReturnUrl</strong>.
+* <strong>urlIndex</strong>: pagina iniziale a cui reindirizzare in caso di errore. Se non viene specificata viene mostrato l'errore nella pagina in cui si presenta.</p>
+<p><strong>c) Parametri relativi all'IdP Cohesion</strong>
+Per abilitare il funzionamento in modalità SAML2.0 è sufficiente cambiare i valori di <strong>urlCheck</strong>, <strong>wsSso</strong> e <strong>additionalData</strong> nel seguente modo:
+* <strong>urlCheck</strong>: https://cohesion2.regione.marche.it/SPManager/WAYF.aspx
+* <strong>wsSso</strong>: https://cohesion2.regione.marche.it/SPManager/wsCheckSessionSPM.asmx
+* <strong>additionalData</strong>: http://yourhost/YOURSITE/Logout.aspx</p>
+<p>Deve contenere obbligatoriamente il percorso completo della propria pagina di logout affinché il logout SAML funzioni correttamente. Può contenere altri due parametri opzionali: i livelli di autenticazione da mostrare (parametro AuthRestriction) e un flag per mostrare solo i meccanismi di accesso federato SPID, CIEID, CNS e l'accesso tramite dominio. I vari parametri vanno separati da punto e virgola ";".</p>
+<p>Per approfondimenti in merito alla configurazione dei parametri addizionali, è possibile far riferimento alla pagina <a href="https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Parametri-della-Richiesta-di-Autenticazione">Parametri della Richiesta di Autenticazione</a></p>
+<blockquote>
+<p>Opzionale</p>
+</blockquote>
+<p>Dopo l'URL di logout è possibile inserire la stringa eidas=1. L'inserimento di questa stringa abilita la login eIDAS nel sistema di autenticazione SAML 2.0 di Cohesion. Questa opzione è compatibile con tutte le altre fin qui indicate. </p>
+<p>Es.
+<code>AuthRestriction=2,1;http://host/YOURSITE/Logout.aspx;UType=c;eidas=1</code></p>
+<p>Affinchè in modalità SAML2.0 funzioni il single logout è poi necessario che la propria pagina di logout richiami la servlet di logout passando il parametro ReturnUrl valorizzato come segue:</p>
+<p><code>…./Logout?
+ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx</code></p>
+<p>E' possibile forzare l'entityID utilizzato dall'utente, impostando il seguente parametro nel query string    <strong>entityID=<nome idp>:idp</strong></p>
+<p>Esempio (Sviluppo):</p>
+<div class="codehilite"><pre><span></span><code><span class="nl">https:</span><span class="c1">//cohesion2sviluppo.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion.regione.marche.it:idp</span>
+</code></pre></div>
+
+<p>Esempio (Produzione):</p>
+<div class="codehilite"><pre><span></span><code><span class="nl">https:</span><span class="c1">//cohesion2.regione.marche.it/SPManager/WAYF.aspx?entityID=cohesion2.regione.marche.it:idp</span>
+</code></pre></div>
+
+<h3 id="parametro-id_sito">Parametro id_sito</h3>
+<p>In caso per l'integrazione sia necessario impostare un IDSito col valore fornito da Regione Marche in fase di abilitazione all'uso di cohesion, il valore va sostituito nella classe contenuta nel WAR Java</p>
+<div class="codehilite"><pre><span></span><code><span class="n">WEB</span><span class="o">-</span><span class="n">INF</span><span class="err">\</span><span class="n">classes</span><span class="err">\</span><span class="n">it</span><span class="err">\</span><span class="n">unicam</span><span class="err">\</span><span class="n">cs</span><span class="err">\</span><span class="n">cohesion</span><span class="err">\</span><span class="n">servlet</span><span class="err">\</span><span class="n">AuthServlet</span><span class="p">.</span><span class="na">java</span>
+</code></pre></div>
+
+<p>riga 34 [private String idsito = "TEST";]</p>
+<p>e nella classe</p>
+<div class="codehilite"><pre><span></span><code><span class="n">WEB</span><span class="o">-</span><span class="n">INF</span><span class="err">\</span><span class="n">classes</span><span class="err">\</span><span class="n">it</span><span class="err">\</span><span class="n">unicam</span><span class="err">\</span><span class="n">cs</span><span class="err">\</span><span class="n">cohesion</span><span class="err">\</span><span class="n">servlet</span><span class="err">\</span><span class="n">LogoutServlet</span><span class="p">.</span><span class="na">java</span>
+</code></pre></div>
+
+<p>riga 22 [private String idsito = "TEST";]</p>
+<h3 id="rinnovo-asserzione-saml">Rinnovo asserzione SAML</h3>
+<p>Una volta autenticati, la sessione per il Single Sign On sarà valida per 60 minuti. Nella modalità SAML questo tempo sarà anche specificato nella risposta SAML ritornata dall’IdP. Entro tale tempo sarà possibile accedere a qualunque sito protetto da Cohesion senza che appaia la maschera di autenticazione. Il Service Provider in tal caso otterrà un nuovo token (contenente anche una nuova asserzione SAML in caso di modalità SAML) ed un rinnovamento del cookie di sessione per altri 60 minuti.</p>
+<p>Qualora si volesse rinnovare la sessione dal proprio SP sarà perciò necessario cancellare il cookie di sessione del proprio sito entro i 60 minuti (es. a 50 minuti) e redirigere l’utente ad una propria pagina privata che richiede l’autenticazione per l’accesso. A questo punto il SP rigirerà l’utente all’IdP Cohesion che, vedendo ancora valida la sessione, aggiornerà il cookie di sessione di altri 60 minuti e ritornerà un nuovo token o una nuova asserzione SAML valida altri 60 minuti senza mostrare l’interfaccia di autenticazione.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../docs/_Footer.md"></script>
+      <script src="../docs/_Sidebar.md"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
