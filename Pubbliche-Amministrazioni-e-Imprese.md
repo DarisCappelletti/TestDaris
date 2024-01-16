@@ -16,4 +16,8 @@ Effettuata la richiesta, i nostri tecnici processeranno i dati inseriti ed invie
 ## Integrazione
 
 Completata la richiesta di Integrazione e ottenuto l'ID Sito, sarà possibile procedere all'effettiva integrazione nel proprio applicativo.
-Per supporto nell'integrazione, consulta la documentazione relativa al [flusso di autenticazione](https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Flusso-di-Autenticazione) e i [parametri della richiesta di autenticazione](https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Parametri-della-Richiesta-di-Autenticazione). Nel caso si voglia utilizzare una delle integrazioni già disponibili, consultare la [Documentazione Tecnica](https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Documentazione-tecnica)
+Per supporto nell'integrazione, consulta la documentazione relativa al [flusso di autenticazione](https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Flusso-di-Autenticazione) e i [parametri della richiesta di autenticazione](https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Parametri-della-Richiesta-di-Autenticazione). Nel caso si voglia utilizzare una delle integrazioni già disponibili, consultare la [Documentazione Tecnica](https://github.com/BianchettiMichele/Integra-Cohesion/wiki/Documentazione-tecnica){% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+

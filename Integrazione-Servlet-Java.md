@@ -125,3 +125,8 @@ Una volta autenticati, la sessione per il Single Sign On sarà valida per 60 min
 
 Qualora si volesse rinnovare la sessione dal proprio SP sarà perciò necessario cancellare il cookie di sessione del proprio sito entro i 60 minuti (es. a 50 minuti) e redirigere l’utente ad una propria pagina privata che richiede l’autenticazione per l’accesso. A questo punto il SP rigirerà l’utente all’IdP Cohesion che, vedendo ancora valida la sessione, aggiornerà il cookie di sessione di altri 60 minuti e ritornerà un nuovo token o una nuova asserzione SAML valida altri 60 minuti senza mostrare l’interfaccia di autenticazione.
 
+{% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+

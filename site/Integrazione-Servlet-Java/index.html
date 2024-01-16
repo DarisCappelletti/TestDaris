@@ -387,6 +387,8 @@ ReturnUrl=https%3A%2F%2Fcohesion2.regione.marche.it%2FSPManager%2FLogout.aspx</c
 <h3 id="rinnovo-asserzione-saml">Rinnovo asserzione SAML</h3>
 <p>Una volta autenticati, la sessione per il Single Sign On sarà valida per 60 minuti. Nella modalità SAML questo tempo sarà anche specificato nella risposta SAML ritornata dall’IdP. Entro tale tempo sarà possibile accedere a qualunque sito protetto da Cohesion senza che appaia la maschera di autenticazione. Il Service Provider in tal caso otterrà un nuovo token (contenente anche una nuova asserzione SAML in caso di modalità SAML) ed un rinnovamento del cookie di sessione per altri 60 minuti.</p>
 <p>Qualora si volesse rinnovare la sessione dal proprio SP sarà perciò necessario cancellare il cookie di sessione del proprio sito entro i 60 minuti (es. a 50 minuti) e redirigere l’utente ad una propria pagina privata che richiede l’autenticazione per l’accesso. A questo punto il SP rigirerà l’utente all’IdP Cohesion che, vedendo ancora valida la sessione, aggiornerà il cookie di sessione di altri 60 minuti e ritornerà un nuovo token o una nuova asserzione SAML valida altri 60 minuti senza mostrare l’interfaccia di autenticazione.</p>
+<p>{% include "_Sidebar.md" %}</p>
+<p>{% include "_Footer.md" %}</p>
 
 
 
