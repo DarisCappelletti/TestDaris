@@ -19,6 +19,13 @@ jobs:
         mkdir -p ./docs
         cp -R ./wiki_tmp/* ./docs
         rm -rf wiki_tmp
+      
+    - name: Add inclusion directives to .md files (except _Sidebar and _Footer)
+        run: |
+          for md_file in $(find . -name "*.md" ! -name "_Sidebar.md" ! -name "_Footer.md"); do
+              echo -e "{% include \"_Sidebar.md\" %}\n\n" >> "$md_file"
+              echo -e "{% include \"_Footer.md\" %}\n" >> "$md_file"
+          done
 
     - name: Install MkDocs
       run: npm install -g mkdocs
