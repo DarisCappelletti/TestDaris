@@ -6,8 +6,6 @@ theme:
 
 nav:
   - Home: 'Home'
-  - docs
-  - dirNamed: docs
 
 extra_javascript:
   - 'docs/_Footer.md'
@@ -16,7 +14,8 @@ extra_javascript:
 plugins:
   - search
   - include_dir_to_nav:
-      file_name_as_title: true
+    sort_file: true
+    sort_directory: true
 
 markdown_extensions:
   - admonition
