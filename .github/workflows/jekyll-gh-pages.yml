@@ -13,8 +13,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Copy wiki files to root
-      run: cp -R /wiki .
+    - name: Clone wiki to root
+      run: |
+        git clone https://github.com/DarisCappelletti/TestDaris.wiki.git wiki_tmp
+        cp -R ./wiki_tmp/* .
+        rm -rf wiki_tmp
 
     - name: Commit and push changes
       run: |
