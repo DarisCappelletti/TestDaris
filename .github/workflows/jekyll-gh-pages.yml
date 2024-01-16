@@ -24,7 +24,9 @@ jobs:
       run: npm install -g mkdocs
 
     - name: Install MkDocs Material theme
-      run: pip install mkdocs-material
+      run: |
+        pip install mkdocs-material
+        pip install mkdocs-include-dir-to-nav
 
     - name: Build MkDocs
       run: mkdocs build --config-file mkdocs.yml
