@@ -3,11 +3,6 @@ site_name: TestDaris
 nav:
   - Home: 'docs/Home.md'
   - Faq: 'docs/FAQ.md'
-  - Docs:
-    - 'docs/*'
-
-theme:
-  name: material
 
 extra_javascript:
   - 'docs/_Footer.md'
