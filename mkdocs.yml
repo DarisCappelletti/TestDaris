@@ -1,18 +1,160 @@
 site_name: TestDaris
 
 theme:
-  name: readthedocs
-  nav_style: dark
+  name: material
+  custom_dir: theme
+  static_templates: [404.html]
+  palette:
+    primary: green
+  feature:
+    tabs: false
 
-nav: custom_nav.yml
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+      permalink_class: toc-link
+      permalink_symbol: ¶
 
 extra_javascript:
   - 'docs/_Footer.md'
   - 'docs/_Sidebar.md'
 
-markdown_extensions:
-  - admonition
-  - codehilite
-
 docs_dir: docs
 site_dir: site
+theme:
+  name: material
+  custom_dir: theme
+  static_templates: [404.html]
+  palette:
+    primary: green
+  feature:
+    tabs: false
+  extra:
+    icon:
+      source: font
+    fonts:
+      text:
+        name: 'Source Sans Pro'
+        family: 'sans-serif'
+        weight: 400
+        style: normal
+      code:
+        name: 'Roboto Mono'
+        family: 'monospace'
+        weight: 400
+        style: normal
+    language_tabs:
+      - python
+      - javascript
+    script:
+      - 'https://buttons.github.io/buttons.js'
+      - 'https://buttons.github.io/buttons.js'
+    repo_url: 'https://github.com/DarisCappelletti/TestDaris'
+    repo_name: 'TestDaris'
+    repo_description: 'A test repository for MkDocs Material'
+
+theme:
+  name: material
+  custom_dir: theme
+  static_templates: [404.html]
+  palette:
+    primary: green
+  feature:
+    tabs: false
+  extra:
+    icon:
+      source: font
+    fonts:
+      text:
+        name: 'Source Sans Pro'
+        family: 'sans-serif'
+        weight: 400
+        style: normal
+      code:
+        name: 'Roboto Mono'
+        family: 'monospace'
+        weight: 400
+        style: normal
+    language_tabs:
+      - python
+      - javascript
+    script:
+      - 'https://buttons.github.io/buttons.js'
+      - 'https://buttons.github.io/buttons.js'
+    repo_url: 'https://github.com/DarisCappelletti/TestDaris'
+    repo_name: 'TestDaris'
+    repo_description: 'A test repository for MkDocs Material'
+    navbar:
+      logo:
+        icon: 'check_circle'
+        href: '/'
+      items:
+        - text: 'Home'
+          icon: 'home'
+          href: '/'
+        - text: 'GitHub'
+          icon: 'link'
+          href: 'https://github.com/DarisCappelletti/TestDaris'
+        - text: 'Themes'
+          icon: 'bookmark'
+          items:
+            - text: 'MkDocs'
+              icon: 'remove_red_eye'
+              href: 'https://squidfunk.github.io/mkdocs-material/'
+            - text: 'Material'
+              icon: 'palette'
+              href: 'https://github.com/squidfunk/mkdocs-material/'
+
+theme:
+  name: material
+  custom_dir: theme
+  static_templates: [404.html]
+  palette:
+    primary: green
+  feature:
+    tabs: false
+  extra:
+    icon:
+      source: font
+    fonts:
+      text:
+        name: 'Source Sans Pro'
+        family: 'sans-serif'
+        weight: 400
+        style: normal
+      code:
+        name: 'Roboto Mono'
+        family: 'monospace'
+        weight: 400
+        style: normal
+    language_tabs:
+      - python
+      - javascript
+    script:
+      - 'https://buttons.github.io/buttons.js'
+      - 'https://buttons.github.io/buttons.js'
+    repo_url: 'https://github.com/DarisCappelletti/TestDaris'
+    repo_name: 'TestDaris'
+    repo_description: 'A test repository for MkDocs Material'
+    navbar:
+      logo:
+        icon: 'check_circle'
+        href: '/'
+      items:
+        - text: 'Home'
+          icon: 'home'
+          href: '/'
+        - text: 'GitHub'
+          icon: 'link'
+          href: 'https://github.com/DarisCappelletti/TestDaris'
+        - text: 'Themes'
+          icon: 'bookmark'
+          items:
+            - text: 'MkDocs'
+              icon: 'remove_red_eye'
+              href: 'https://squidfunk.github.io/mkdocs-material/'
+            - text: 'Material'
+              icon: 'palette'
+              href: 'https://github.com/squidfunk/mkdocs-material/'
