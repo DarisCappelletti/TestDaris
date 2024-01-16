@@ -1,23 +1,28 @@
-name: PRs to master
+name: Publish Wiki
+
 on:
   push:
     branches:
       - master
-      
+
 jobs:
-  merge-master-back-to-dev:
-    timeout-minutes: 2
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Set Git config
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Clone wiki to root
       run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "Github Actions"
-    - name: Merge master back to dev
+        git clone https://github.com/DarisCappelletti/TestDaris.wiki.git wiki_tmp
+        cp -R ./wiki_tmp/* .
+        rm -rf wiki_tmp
+
+    - name: Commit and push changes
       run: |
-          git fetch --unshallow
-          git checkout gh-pages
-          git pull
-          git merge --no-ff master -m "Auto-merge master back to dev"
-          git push
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "GitHub Actions"
+        git add .
+        git commit -m "Update wiki files"
+        git push
