@@ -13,9 +13,11 @@ extra_javascript:
 
 plugins:
   - include_dir_to_nav:
-        file_name_as_title: true
-        recurse: true
-        reverse_sort_directory: true
+      file_name_as_title: true
+      sort_file: true
+      sort_directory: true
+      recurse: true
+      reverse_sort_directory: true
 
 markdown_extensions:
   - admonition
