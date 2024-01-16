@@ -1,0 +1,34 @@
+name: Publish Wiki
+
+on:
+  push:
+    branches:
+      - gh-pages
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Git
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "GitHub Actions"
+
+    - name: Clone wiki to root
+      run: |
+        git clone https://github.com/DarisCappelletti/TestDaris.wiki.git wiki_tmp
+        cp -R ./wiki_tmp/* .
+        rm -rf wiki_tmp
+
+    - name: Commit and push changes
+      run: |
+        git add .
+        git commit -m "Update wiki files"
+        git remote set-url origin https://${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}@github.com/DarisCappelletti/TestDaris.git
+        git push origin HEAD:${{ github.ref }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
