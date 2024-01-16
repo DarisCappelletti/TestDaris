@@ -12,3 +12,8 @@
 
 {% include "_Footer.md" %}
 
+{% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+

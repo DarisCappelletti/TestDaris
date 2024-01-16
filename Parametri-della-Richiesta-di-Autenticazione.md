@@ -95,3 +95,8 @@ Specificando questo parametro, CohesionID effettuerà la richiesta di autenticaz
 
 {% include "_Footer.md" %}
 
+{% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+

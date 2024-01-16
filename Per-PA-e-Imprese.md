@@ -5,3 +5,8 @@ Se il sito è pubblicato da o per conto della Regione Marche o dipendi da un Ent
 
 {% include "_Footer.md" %}
 
+{% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+

@@ -91,3 +91,8 @@ Es. AuthRestriction=2,1;http://host/YOURSITE/Logout.aspx;UType=c;eidas=1
 
 {% include "_Footer.md" %}
 
+{% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+

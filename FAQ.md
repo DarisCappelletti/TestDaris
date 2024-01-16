@@ -38,3 +38,8 @@ https://procedimenti.regione.marche.it/AreaPA/TipologieProcedimento/DettagliTer/
 
 {% include "_Footer.md" %}
 
+{% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+

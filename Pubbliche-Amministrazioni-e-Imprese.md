@@ -21,3 +21,8 @@ Per supporto nell'integrazione, consulta la documentazione relativa al [flusso d
 
 {% include "_Footer.md" %}
 
+{% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+

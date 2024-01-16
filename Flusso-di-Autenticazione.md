@@ -191,3 +191,8 @@ https://cohesion2.regione.marche.it/SPManager/webCheckSessionSSO.aspx?Operation=
 
 {% include "_Footer.md" %}
 
+{% include "_Sidebar.md" %}
+
+
+{% include "_Footer.md" %}
+
