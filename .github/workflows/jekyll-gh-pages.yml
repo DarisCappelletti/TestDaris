@@ -19,6 +19,17 @@ jobs:
         cp -R ./wiki_tmp/* .
         rm -rf wiki_tmp
 
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install MkDocs
+      run: npm install -g mkdocs
+
+    - name: Build MkDocs
+      run: mkdocs build
+
     - name: Commit and push changes
       run: |
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -26,14 +37,4 @@ jobs:
         git add .
         git commit -m "Update wiki files"
         git push
-
-    - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-    - name: Install MkDocs
-        run: npm install -g mkdocs
-
-    - name: Build MkDocs
-        run: mkdocs build
+    
