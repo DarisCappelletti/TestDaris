@@ -22,4 +22,4 @@ markdown_extensions:
 docs_dir: docs
 site_dir: site
 
-index: home.md
+index: Home.md
