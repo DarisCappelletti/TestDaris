@@ -3,6 +3,9 @@ site_name: TestDaris
 theme:
   name: material
 
+extra:
+  generator: false
+
 extra_javascript:
   - 'docs/_Footer.md'
   - 'docs/_Sidebar.md'
@@ -21,5 +24,3 @@ markdown_extensions:
 
 docs_dir: docs
 site_dir: site
-
-index: Home.md
