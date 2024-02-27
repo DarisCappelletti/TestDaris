@@ -4,6 +4,8 @@ theme:
   name: material
   language: it
   custom_dir: Custom/overrides
+  features:
+    - announce.dismiss
 
 extra:
   generator: false
