@@ -14,6 +14,7 @@ jobs:
     - name: Clone wiki to root
       run: |
         git clone https://github.com/DarisCappelletti/TestDaris.wiki.git wiki_tmp
+        rm -rf docs
         mkdir -p ./docs
         cp -R ./wiki_tmp/* ./docs
         rm -rf wiki_tmp
