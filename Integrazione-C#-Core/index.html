@@ -1,140 +1,99 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Integrazione C# Core - TestDaris</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Integrazione C# Core";
-        var mkdocs_page_input_path = "Integrazione-C#-Core.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Integrazione C# Core - TestDaris</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.5.3, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../css/style.min.css" rel="stylesheet"> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<div class="book">
+<div class="book-summary">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> TestDaris
-        </a>
-      </div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href=".." target="_blank" class="custom-link">TestDaris</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="">
+<a href="..">Home</a>
+<li class="chapter" data-path="Documentazione-tecnica/">
+<a href="../Documentazione-tecnica/"> </a>
+<li class="chapter" data-path="FAQ/">
+<a href="../FAQ/">FAQ (Frequently Asked Questions)</a>
+<li class="chapter" data-path="Flusso-di-Autenticazione/">
+<a href="../Flusso-di-Autenticazione/">Flusso di Autenticazione</a>
+<li class="chapter" data-path="Home/">
+<a href="../Home/">Home</a>
+<li class="chapter" data-path="Index/">
+<a href="../Index/">Index</a>
+<li class="chapter active" data-path="Integrazione-C%23-Core/">
+<a href="./">Integrazione C# Core</a>
+<li class="chapter" data-path="Integrazione-Classe-C%23/">
+<a href="../Integrazione-Classe-C%23/">Integrazione classe C</a>
+<li class="chapter" data-path="Integrazione-Servlet-Java/">
+<a href="../Integrazione-Servlet-Java/">Integrazione mediante servlet Java</a>
+<li class="chapter" data-path="Parametri-della-Richiesta-di-Autenticazione/">
+<a href="../Parametri-della-Richiesta-di-Autenticazione/">Parametri della Richiesta di Autenticazione</a>
+<li class="chapter" data-path="Per-PA-e-Imprese/">
+<a href="../Per-PA-e-Imprese/">Per PA e Imprese</a>
+<li class="chapter" data-path="Pubbliche-Amministrazioni-e-Imprese/">
+<a href="../Pubbliche-Amministrazioni-e-Imprese/">Come integro CohesionID?</a>
+<li class="chapter" data-path="Rinnovo-del-Token/">
+<a href="../Rinnovo-del-Token/">Come rinnovare il Token</a>
+<li class="chapter" data-path="_Footer/">
+<a href="../_Footer/"> Footer</a>
+<li class="chapter" data-path="_Sidebar/">
+<a href="../_Sidebar/"> Sidebar</a>
+<li class="divider"></li>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Documentazione-tecnica/"> </a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../FAQ/">FAQ (Frequently Asked Questions)</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Flusso-di-Autenticazione/">Flusso di Autenticazione</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Home/">Home</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Index/">Index</a>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Integrazione C# Core</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#come-integrarlo-nel-proprio-applicativo">Come integrarlo nel proprio applicativo</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#cohesionservicecs">CohesionService.cs</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#il-metodo-requestauth">Il metodo "RequestAuth"</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#il-metodo-checkauth">Il metodo "CheckAuth"</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#il-metodo-logoutfe">Il metodo "LogoutFE"</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#appsettingsjson">appsettings.json</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Integrazione-Classe-C%23/">Integrazione classe C</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Integrazione-Servlet-Java/">Integrazione mediante servlet Java</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Parametri-della-Richiesta-di-Autenticazione/">Parametri della Richiesta di Autenticazione</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Per-PA-e-Imprese/">Per PA e Imprese</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Pubbliche-Amministrazioni-e-Imprese/">Come integro CohesionID?</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Rinnovo-del-Token/">Come rinnovare il Token</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../_Footer/"> Footer</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../_Sidebar/"> Sidebar</a>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">TestDaris</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Integrazione C# Core</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="integrazione-c-core">Integrazione C# Core</h1>
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+<section class="normal markdown-section">
+
+
+
+<h1 id="integrazione-c-core">Integrazione C# Core</h1>
 <p>Con il presente si vuole fornire una panoramica completa delle modalità di integrazione e delle configurazioni di utilizzo del Service Provider fornito con Cohesion in applicativi web che richiedono autenticazione e profilazione utente.
 Verrà in dettaglio descritta la procedura di installazione in ambiente IIS mediante classe C# CohesionSSO.cs e la configurazione per l’utilizzo classico ed il funzionamento in modalità federata SAML2.0.
 Questa modalità è sempre preferibile e in particolare è necessaria qualora non venga rilasciato all’ente un certificato personale per la comunicazione con Cohesion.</p>
@@ -205,52 +164,20 @@ Nella repo della demo sono indicati i requisiti ed i passaggi da eseguire per in
 </blockquote>
 <p>Dopo l'URL di logout è possibile inserire la stringa eidas=1. L'inserimento di questa stringa abilita la login eIDAS nel sistema di autenticazione SAML 2.0 di Cohesion. Questa opzione è compatibile con tutte le altre fin qui indicate. 
 Es. AuthRestriction=2,1;http://host/YOURSITE/Logout.aspx;UType=c;eidas=1</p>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Index/" class="btn btn-neutral float-left" title="Index"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Integrazione-Classe-C%23/" class="btn btn-neutral float-right" title="Integrazione classe C">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
-  <hr/>
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
+</section>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
-        </div>
-      </div>
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
 
-    </section>
+</div> <!-- end of body-inner -->
 
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../Index/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../Integrazione-Classe-C%23/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
-</div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../docs/_Footer.md"></script>
-      <script src="../docs/_Sidebar.md"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
+</div> <!-- end of book-body -->
+<script src="../js/main.js"></script>
+<script src="../docs/_Footer.md"></script>
+<script src="../docs/_Sidebar.md"></script>
+<script src="../js/gitbook.min.js"></script>
+<script src="../js/theme.min.js"></script>
 </body>
 </html>
