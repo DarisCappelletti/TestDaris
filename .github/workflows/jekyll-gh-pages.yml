@@ -21,9 +21,10 @@ jobs:
     - name: Install MkDocs
       run: npm install -g mkdocs
 
-    - name: Install MkDocs Material theme
+    - name: Install MkDocs theme
       run: |
         pip install mkdocs-material
+        pip install mkdocs-gitbook
         pip install mkdocs-include-dir-to-nav
 
     - name: Build MkDocs
