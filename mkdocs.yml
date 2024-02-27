@@ -3,7 +3,7 @@ site_name: TestDaris
 theme:
   name: material
   language: it
-  custom_dir: Custom/override
+  custom_dir: Custom/overrides
 
 extra:
   generator: false
