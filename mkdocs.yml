@@ -1,8 +1,7 @@
 site_name: TestDaris
 
 theme:
-  name: readthedocs
-  nav_style: dark
+  name: gitbook
 
 extra_javascript:
   - 'docs/_Footer.md'
