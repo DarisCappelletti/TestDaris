@@ -2,6 +2,7 @@ site_name: TestDaris
 
 theme:
   name: material
+  language: it
 
 extra:
   generator: false
