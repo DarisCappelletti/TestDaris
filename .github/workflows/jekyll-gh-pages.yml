@@ -32,10 +32,6 @@ jobs:
     - name: Build MkDocs
       run: mkdocs build --config-file mkdocs.yml
 
-    - name: Clone wiki to root
-      run: |
-        cp -R ./Custom/* ./docs
-
     - name: Commit and push changes
       run: |
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
