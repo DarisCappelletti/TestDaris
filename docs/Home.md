@@ -1,5 +1,4 @@
  ![cohesion](https://github.com/BianchettiMichele/Test-Newsletter/assets/150154140/663e6cd2-d61d-43ea-82d9-292e7cc43b74)
-
 # Che cos'è?
 CohesionID è il framework di autenticazione della Regione Marche che permette di verificare la corretta identità degli utenti (Persone fisiche munite di codice fiscale) che accedono a servizi digitali della Regione o degli Enti convenzionati. 
 
