@@ -6,6 +6,7 @@ theme:
   custom_dir: Custom/overrides
   features:
     - announce.dismiss
+    - navigation.instant
   palette: 
     # Palette toggle for light mode
     - scheme: default
