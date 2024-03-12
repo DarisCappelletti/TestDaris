@@ -36,7 +36,7 @@ plugins:
 
 nav:
     - ...
-    - index.md
+    - Ultima pagina: index.md
 
 markdown_extensions:
   - admonition
