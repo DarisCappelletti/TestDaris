@@ -30,8 +30,6 @@ plugins:
   - awesome-pages:
         collapse_single_pages: true
         strict: false
-        order: asc
-        sort_type: natural
 
 markdown_extensions:
   - admonition
