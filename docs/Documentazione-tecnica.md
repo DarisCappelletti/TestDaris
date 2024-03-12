@@ -8,3 +8,4 @@
 
 # ![Progetto senza titolo (6)](https://github.com/BianchettiMichele/Integra-Cohesion/assets/150154140/11c16b31-194b-4b9d-b880-d4c9454759e7) [Integrazione Phyton (beta)](https://github.com/regione-marche/Cohesion2PythonIntegrationTest)
 
+
