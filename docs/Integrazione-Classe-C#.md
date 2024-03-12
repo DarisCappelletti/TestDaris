@@ -1,3 +1,7 @@
+---
+title: Integrazione C# Core prova
+nav_order: 2
+---
 # Integrazione classe C#
 
 Con il presente si vuole fornire una panoramica completa delle modalità di integrazione e delle configurazioni di utilizzo del Service Provider fornito con Cohesion in applicativi web che richiedono autenticazione e profilazione utente.
