@@ -37,6 +37,10 @@ plugins:
         sort_type: natural
         order_by: title
 
+nav:
+    - ...
+    - index.md
+
 markdown_extensions:
   - admonition
   - codehilite
