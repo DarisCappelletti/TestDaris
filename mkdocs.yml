@@ -40,6 +40,7 @@ nav:
     - 'Directory2/':
       - 'Page3.md'
   - Link Esterno: https://example.com  # Aggiungi qui il link esterno
+  - IncludeDirToNav:
 
 markdown_extensions:
   - admonition
