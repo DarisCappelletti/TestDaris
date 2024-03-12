@@ -28,6 +28,7 @@ jobs:
         pip install mkdocs-gitbook
         pip install mkdocs-material
         pip install mkdocs-include-dir-to-nav
+        pip install mkdocs-awesome-pages-plugin
 
     - name: Build MkDocs
       run: mkdocs build --config-file mkdocs.yml
