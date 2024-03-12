@@ -37,5 +37,11 @@ markdown_extensions:
   - admonition
   - codehilite
 
+nav:
+    - ...
+    - Ultima pagina: index.md
+    - A boh Ultimissima pagina: Per-PA-e-Imprese.md
+    - Link Title: https://lukasgeiter.com
+
 docs_dir: docs
 site_dir: site
