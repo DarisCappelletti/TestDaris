@@ -1,3 +1,8 @@
+---
+title: Integrazione Servlet Java prova
+nav_order: 4
+---
+
 # Integrazione mediante servlet Java
 
 Con il presente si vuole fornire una panoramica completa delle modalità di integrazione e delle configurazioni di utilizzo del Service Provider fornito con Cohesion in applicativi web che richiedono autenticazione e profilazione utente.

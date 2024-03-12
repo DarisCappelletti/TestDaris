@@ -1,3 +1,8 @@
+---
+title: Integrazione C# Core prova
+nav_order: 3
+---
+
 # Flusso di Autenticazione
 ## 1. L'utente richiede di effettuare il login 
 
