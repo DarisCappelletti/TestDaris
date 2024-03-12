@@ -1,5 +1,15 @@
 site_name: TestDaris
 
+nav:
+  - Home: index.md
+  - Documentazione:
+    - 'Directory1/':
+      - 'Page1.md'
+      - 'Page2.md'
+    - 'Directory2/':
+      - 'Page3.md'
+  - Link Esterno: https://example.com  # Aggiungi qui il link esterno
+  
 theme:
   name: material
   language: it
