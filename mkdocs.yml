@@ -30,17 +30,12 @@ plugins:
   - include_dir_to_nav:
       file_name_as_title: true
       recurse: true
-      
-nav:
-  - Home: index.md
-  - Documentazione:
-    - 'Directory1/':
-      - 'Page1.md'
-      - 'Page2.md'
-    - 'Directory2/':
-      - 'Page3.md'
-  - Link Esterno: https://example.com  # Aggiungi qui il link esterno
-  - IncludeDirToNav:
+  - awesome-pages:
+        collapse_single_pages: true
+        strict: false
+        order: asc
+        sort_type: natural
+        order_by: title
 
 markdown_extensions:
   - admonition
